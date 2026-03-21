@@ -4,7 +4,7 @@ This is my personal portfolio website built to showcase my projects, experience,
 
 ## 🚀 Live Site
 
-[https://niseembha.github.io/portfolio-website/](url)
+https://niseembha.github.io/portfolio-website/
 
 ## 🛠️ Tech Stack
 
