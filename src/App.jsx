@@ -8,6 +8,7 @@ import greenhillImage from "./assets/greenhill.png";
 import harvardAiBootcampImage from "./assets/harvardaibootcamp.png";
 import inzpireuImage from "./assets/inzpireu.jpeg";
 import profile from "./assets/profile-image.jpg";
+import resumePdf from "./assets/resume.pdf";
 import tableOfHopeImage from "./assets/tableofhope.png";
 
 const contactLinks = [
@@ -59,7 +60,6 @@ const contactLinks = [
   },
 ];
 
-const resumePdf = "/resume.pdf";
 const rotatingTaglines = [
   "I build AI tools. 🤖",
   "I solve real-world problems. 🚀",
