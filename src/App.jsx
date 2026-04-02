@@ -5,6 +5,7 @@ import cs50pImage from "./assets/cs50p.jpg";
 import datacolorImage from "./assets/datacolor.jpeg";
 import diabetesImage from "./assets/diabetes.png";
 import greenhillImage from "./assets/greenhill.png";
+import grantMateImage from "./assets/grantmate.png";
 import harvardAiBootcampImage from "./assets/harvardaibootcamp.png";
 import inzpireuImage from "./assets/inzpireu.jpeg";
 import profile from "./assets/profile-image.jpg";
@@ -58,12 +59,6 @@ const contactLinks = [
       <path d="M6.94 8.5H3.56V19h3.38V8.5Zm.22-3.25c0 1.02-.77 1.85-1.91 1.85h-.02c-1.09 0-1.85-.83-1.85-1.85 0-1.05.78-1.85 1.89-1.85 1.12 0 1.86.8 1.89 1.85ZM20.5 12.6c0-3.15-1.68-4.61-3.92-4.61-1.81 0-2.62 1-3.07 1.7V8.5H10.1c.05.79 0 10.5 0 10.5h3.4v-5.86c0-.31.02-.62.11-.84.25-.62.81-1.25 1.75-1.25 1.24 0 1.74.94 1.74 2.32V19h3.4v-6.4Z" />
     ),
   },
-];
-
-const rotatingTaglines = [
-  "I build AI tools. 🤖",
-  "I solve real-world problems. 🚀",
-  "I turn ideas into systems. ⚙️",
 ];
 
 const skillGroups = [
@@ -195,15 +190,12 @@ const featuredProjects = [
       "https://docs.google.com/document/d/100_mn5hdXVUQiQkVFQ8cCMYLEsQMgA9KD0sDzxCyBeE/edit?tab=t.0",
   },
   {
-    title: "Project Three",
-    category: "Creative Development",
-    imageLabel: "Project image placeholder",
+    title: "GrantMate",
+    category: "AI Grant Platform",
+    imageLabel: "Grant Mate project image",
+    imageSrc: grantMateImage,
     summary:
-      "Describe the type of work, the collaboration model, and the visual or technical approach.",
-    primaryLinkLabel: "View project",
-    primaryLinkHref: "#",
-    secondaryLinkLabel: "View details",
-    secondaryLinkHref: "#",
+      "Started this project during my internship at Datacolor, where I built an AI-powered grant discovery platform that aggregates public and private funding sources into a single searchable workflow for nonprofits. I then continued to develop and expand it, enhancing features like intelligent grant matching and PDF-based analysis to help teams quickly evaluate opportunities without navigating fragmented databases.",
   },
 ];
 
@@ -215,10 +207,6 @@ const allProjects = [
     imageLabel: "Project image placeholder",
     summary:
       "Add another project entry here with the key problem, your role, and the visual or technical angle.",
-    primaryLinkLabel: "View project",
-    primaryLinkHref: "#",
-    secondaryLinkLabel: "View details",
-    secondaryLinkHref: "#",
   },
   {
     title: "Project Five",
@@ -226,10 +214,6 @@ const allProjects = [
     imageLabel: "Project image placeholder",
     summary:
       "This card is a placeholder for additional work you want to show outside the featured home selection.",
-    primaryLinkLabel: "View project",
-    primaryLinkHref: "#",
-    secondaryLinkLabel: "View details",
-    secondaryLinkHref: "#",
   },
   {
     title: "Project Six",
@@ -237,10 +221,6 @@ const allProjects = [
     imageLabel: "Project image placeholder",
     summary:
       "Use this space for another short project description so the full projects page feels complete.",
-    primaryLinkLabel: "View project",
-    primaryLinkHref: "#",
-    secondaryLinkLabel: "View details",
-    secondaryLinkHref: "#",
   },
 ];
 
@@ -408,6 +388,17 @@ function ImageFrame({ label, detail, src, href, alt, className = "" }) {
 }
 
 function ProjectCard({ project }) {
+  const projectLinks = [
+    {
+      label: project.primaryLinkLabel,
+      href: project.primaryLinkHref,
+    },
+    {
+      label: project.secondaryLinkLabel,
+      href: project.secondaryLinkHref,
+    },
+  ].filter((link) => link.label && link.href);
+
   return (
     <article className="project-card card">
       <p className="project-category">{project.category}</p>
@@ -419,34 +410,20 @@ function ProjectCard({ project }) {
       />
       <h3>{project.title}</h3>
       <p>{project.summary}</p>
-      <div className="project-footer">
-        <a
-          href={project.primaryLinkHref}
-          target={
-            project.primaryLinkHref?.startsWith("http") ? "_blank" : undefined
-          }
-          rel={
-            project.primaryLinkHref?.startsWith("http")
-              ? "noreferrer"
-              : undefined
-          }
-        >
-          {project.primaryLinkLabel}
-        </a>
-        <a
-          href={project.secondaryLinkHref}
-          target={
-            project.secondaryLinkHref?.startsWith("http") ? "_blank" : undefined
-          }
-          rel={
-            project.secondaryLinkHref?.startsWith("http")
-              ? "noreferrer"
-              : undefined
-          }
-        >
-          {project.secondaryLinkLabel}
-        </a>
-      </div>
+      {projectLinks.length ? (
+        <div className="project-footer">
+          {projectLinks.map((link) => (
+            <a
+              key={`${project.title}-${link.label}`}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      ) : null}
     </article>
   );
 }
@@ -523,18 +500,6 @@ function SkillMarqueeRow({ group, reverse = false }) {
 }
 
 function HomePage() {
-  const [taglineIndex, setTaglineIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setTaglineIndex(
-        (currentIndex) => (currentIndex + 1) % rotatingTaglines.length,
-      );
-    }, 2400);
-
-    return () => window.clearInterval(intervalId);
-  }, []);
-
   return (
     <>
       <section className="hero section">
@@ -576,19 +541,6 @@ function HomePage() {
             I build AI tools, explore machine learning, and create technology
             for real-world impact.
           </p>
-          <div
-            className="hero-rotator hero-reveal hero-reveal-3"
-            aria-live="polite"
-          >
-            <span className="hero-rotator-label">Now:</span>
-            <strong
-              key={rotatingTaglines[taglineIndex]}
-              className="hero-rotator-text"
-            >
-              {rotatingTaglines[taglineIndex]}
-            </strong>
-          </div>
-
           <div className="hero-actions hero-reveal hero-reveal-4">
             <a className="button button-primary" href="#/section/projects">
               View Projects
@@ -647,7 +599,7 @@ function HomePage() {
         </div> */}
 
         <div className="project-grid">
-          {allProjects.slice(0, 2).map((project) => (
+          {allProjects.slice(0, 3).map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
@@ -675,14 +627,6 @@ function HomePage() {
         />
 
         <div className="contact-layout">
-          <div className="contact-card card">
-            <div className="contact-actions contact-icon-row">
-              {contactLinks.map((link) => (
-                <SocialIcon key={link.label} {...link} />
-              ))}
-            </div>
-          </div>
-
           <div className="resume-card card">
             <div className="resume-header">
               <h3>Resume</h3>
@@ -703,6 +647,14 @@ function HomePage() {
                 title="Resume PDF preview"
                 className="resume-preview"
               />
+            </div>
+          </div>
+
+          <div className="contact-card card">
+            <div className="contact-actions contact-icon-row">
+              {contactLinks.map((link) => (
+                <SocialIcon key={link.label} {...link} />
+              ))}
             </div>
           </div>
         </div>
