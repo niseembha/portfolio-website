@@ -8,6 +8,7 @@ import greenhillImage from "./assets/greenhill.png";
 import grantMateImage from "./assets/grantmate.png";
 import harvardAiBootcampImage from "./assets/harvardaibootcamp.png";
 import inzpireuImage from "./assets/inzpireu.jpeg";
+import medSightImage from "./assets/MedSight.jpg";
 import profile from "./assets/profile-image.jpg";
 import resumePdf from "./assets/resume.pdf";
 import tableOfHopeImage from "./assets/tableofhope.png";
@@ -190,37 +191,26 @@ const featuredProjects = [
       "https://docs.google.com/document/d/100_mn5hdXVUQiQkVFQ8cCMYLEsQMgA9KD0sDzxCyBeE/edit?tab=t.0",
   },
   {
-    title: "GrantMate",
-    category: "AI Grant Platform",
-    imageLabel: "Grant Mate project image",
-    imageSrc: grantMateImage,
+    title: "MedSight",
+    category: "HackSMU VII Clinical AI",
+    imageLabel: "MedSight project image",
+    imageSrc: medSightImage,
     summary:
-      "Started this project during my internship at Datacolor, where I built an AI-powered grant discovery platform that aggregates public and private funding sources into a single searchable workflow for nonprofits. I then continued to develop and expand it, enhancing features like intelligent grant matching and PDF-based analysis to help teams quickly evaluate opportunities without navigating fragmented databases.",
+      "Built an AI-powered clinical observation platform at HackSMU VII that turns passive smart-glasses data into structured behavioral telemetry and physician-facing reports. The system captures first-person context, extracts activity, engagement, and distraction signals, compares trends against patient baselines, and summarizes clinically useful follow-up insights.",
+    primaryLinkLabel: "Devpost",
+    primaryLinkHref: "https://devpost.com/software/medsight-bu2x7l",
   },
 ];
 
 const allProjects = [
   ...featuredProjects,
   {
-    title: "Project Four",
-    category: "Web Experience",
-    imageLabel: "Project image placeholder",
+    title: "GrantMate",
+    category: "AI Grant Platform",
+    imageLabel: "Grant Mate project image",
+    imageSrc: grantMateImage,
     summary:
-      "Add another project entry here with the key problem, your role, and the visual or technical angle.",
-  },
-  {
-    title: "Project Five",
-    category: "Case Study",
-    imageLabel: "Project image placeholder",
-    summary:
-      "This card is a placeholder for additional work you want to show outside the featured home selection.",
-  },
-  {
-    title: "Project Six",
-    category: "Launch Campaign",
-    imageLabel: "Project image placeholder",
-    summary:
-      "Use this space for another short project description so the full projects page feels complete.",
+      "Started this project during my internship at Datacolor, where I built an AI-powered grant discovery platform that aggregates public and private funding sources into a single searchable workflow for nonprofits. I then continued to develop and expand it, enhancing features like intelligent grant matching and PDF-based analysis to help teams quickly evaluate opportunities without navigating fragmented databases.",
   },
 ];
 
@@ -288,24 +278,6 @@ const workItems = [
     imageHref: "https://tableofhopedallas.org/",
     description:
       "Co-founded a nonprofit dedicated to cooking and delivering meals to underserved communities, helping prepare and distribute over 1,000 meals with a volunteer team. Designed and launched the organization’s website using Framer and led social media efforts to grow engagement. Raised over $3,000 to support operations and expand outreach.",
-  },
-];
-
-const processSteps = [
-  {
-    label: "01",
-    title: "Discover",
-    text: "Explain how you learn about clients, users, constraints, and goals before starting execution.",
-  },
-  {
-    label: "02",
-    title: "Design",
-    text: "Outline how you shape concepts, prototypes, systems, or iterations into a clear direction.",
-  },
-  {
-    label: "03",
-    title: "Deliver",
-    text: "Describe how you launch work, support handoff, and measure whether the result actually lands.",
   },
 ];
 
@@ -463,38 +435,15 @@ function SocialIcon({ label, href, icon }) {
   );
 }
 
-function SkillMarqueeRow({ group, reverse = false }) {
-  const marqueeItems = [...group.items, ...group.items];
-
+function SkillGroup({ group }) {
   return (
     <div className="skill-group">
       <span className="skill-group-label">{group.label}</span>
-      {group.staticRow ? (
-        <div className="skill-static-row">
-          {group.items.map((item) => (
-            <SkillChip key={`${group.label}-${item}`} item={item} />
-          ))}
-        </div>
-      ) : (
-        <div className="skill-marquee">
-          <div
-            className={
-              reverse
-                ? "skill-marquee-track skill-marquee-track-reverse"
-                : "skill-marquee-track"
-            }
-          >
-            {marqueeItems.map((item, index) => (
-              <span
-                key={`${group.label}-${item}-${index}`}
-                aria-hidden={index >= group.items.length ? "true" : undefined}
-              >
-                <SkillChip item={item} />
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
+      <div className="skill-static-row">
+        {group.items.map((item) => (
+          <SkillChip key={`${group.label}-${item}`} item={item} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -553,12 +502,8 @@ function HomePage() {
           <div className="skill-strip card hero-reveal hero-reveal-4">
             <p className="card-label">Skills Stack</p>
             <div className="skill-strip-grid">
-              {skillGroups.map((group, index) => (
-                <SkillMarqueeRow
-                  key={group.label}
-                  group={group}
-                  reverse={index % 2 === 1}
-                />
+              {skillGroups.map((group) => (
+                <SkillGroup key={group.label} group={group} />
               ))}
             </div>
           </div>
@@ -589,14 +534,14 @@ function HomePage() {
         <SectionHeading
           eyebrow="Projects"
           title="Some of the things I’ve been building."
-          note="From AI tools to research projects, I enjoy building technology that tackles meaningful problems—and sometimes just building things because they’re fun. Below are a few projects that reflect my interests in machine learning, software development, and creative experimentation."
+          note="Projects at the intersection of AI, software, research, and curiosity."
         />
 
-        {/* <div className="section-link-row">
+        <div className="section-link-row">
           <a className="more-link" href="#/projects">
             More projects
           </a>
-        </div> */}
+        </div>
 
         <div className="project-grid">
           {allProjects.slice(0, 3).map((project) => (
@@ -706,8 +651,8 @@ function ProjectsPage() {
     <section className="section page-section">
       <SectionHeading
         eyebrow="Projects"
-        title="This page is for the full archive, case studies, and everything beyond the top three."
-        note="Replace these placeholders with your complete body of work, links, screenshots, and longer descriptions."
+        title="All Projects"
+        note="A fuller archive of the tools, research systems, and experiments I’ve built across AI, healthcare, automation, and civic technology."
       />
 
       <div className="project-grid project-grid-expanded">
