@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import "./App.css";
 import chessBotImage from "./assets/chess-bot.png";
 import cs50pImage from "./assets/cs50p.jpg";
@@ -12,6 +12,12 @@ import medSightImage from "./assets/MedSight.jpg";
 import profile from "./assets/profile-image.jpg";
 import resumePdf from "./assets/resume.pdf";
 import tableOfHopeImage from "./assets/tableofhope.png";
+import VariableProximity from "./components/VariableProximity";
+
+const LiquidEther = lazy(() => import("./components/LiquidEther"));
+const TextPressure = lazy(() => import("./components/TextPressure"));
+
+const liquidEtherColors = ["#111111", "#c8462c", "#8a857c"];
 
 const contactLinks = [
   {
@@ -101,52 +107,52 @@ const skillGroups = [
 const pyAutoGuiIcon = `data:image/svg+xml;utf8,${encodeURIComponent(`
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="16" fill="#f8fafc"/>
-    <path d="M10 6.5v15.2l3.9-3.6 2.9 6.4 3.2-1.5-2.9-6.3 5.8-.5L10 6.5Z" fill="#1e293b"/>
-    <circle cx="23.5" cy="9" r="2.5" fill="#e85d75"/>
+    <path d="M10 6.5v15.2l3.9-3.6 2.9 6.4 3.2-1.5-2.9-6.3 5.8-.5L10 6.5Z" fill="#111111"/>
+    <circle cx="23.5" cy="9" r="2.5" fill="#c8462c"/>
   </svg>
 `)}`;
 
 const javaIcon = `data:image/svg+xml;utf8,${encodeURIComponent(`
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="16" fill="#f8fafc"/>
-    <path d="M18.9 7.4c1.7 1.5-1 2.7-.1 4.2.4.7 1.4 1 1.4 2.2 0 1.8-1.8 2.9-3.9 3.3 1.6-.8 2.5-1.6 2.5-2.6 0-.9-.8-1.4-1.4-2.2-1-1.3-.2-3 1.5-4.9Z" fill="#e85d75"/>
-    <path d="M13 17.4c0 1.2 2 1.5 3.8 1.5 1.9 0 3.7-.3 3.7-1.3 0-.5-.5-.9-1.2-1.2.3.3.4.5.4.8 0 1-1.6 1.4-3.3 1.4-1.7 0-3.5-.4-3.5-1.5 0-.2 0-.4.1-.6-.1.3 0 .6 0 .9Z" fill="#1e293b"/>
-    <path d="M10.2 20.1c.8 1.5 3.2 2.2 6.5 2.2 3.5 0 6-.9 6.9-2.4-.3 2.7-3.7 4.1-7.2 4.1-3.2 0-5.7-1-6.2-3.9Z" fill="#1e293b"/>
-    <path d="M11.2 19.3h10.1c.2 0 .4.2.4.4 0 .5-1.4 1.6-5.3 1.6s-5.7-1.1-5.7-1.6c0-.2.2-.4.5-.4Z" fill="#e85d75"/>
+    <path d="M18.9 7.4c1.7 1.5-1 2.7-.1 4.2.4.7 1.4 1 1.4 2.2 0 1.8-1.8 2.9-3.9 3.3 1.6-.8 2.5-1.6 2.5-2.6 0-.9-.8-1.4-1.4-2.2-1-1.3-.2-3 1.5-4.9Z" fill="#c8462c"/>
+    <path d="M13 17.4c0 1.2 2 1.5 3.8 1.5 1.9 0 3.7-.3 3.7-1.3 0-.5-.5-.9-1.2-1.2.3.3.4.5.4.8 0 1-1.6 1.4-3.3 1.4-1.7 0-3.5-.4-3.5-1.5 0-.2 0-.4.1-.6-.1.3 0 .6 0 .9Z" fill="#111111"/>
+    <path d="M10.2 20.1c.8 1.5 3.2 2.2 6.5 2.2 3.5 0 6-.9 6.9-2.4-.3 2.7-3.7 4.1-7.2 4.1-3.2 0-5.7-1-6.2-3.9Z" fill="#111111"/>
+    <path d="M11.2 19.3h10.1c.2 0 .4.2.4.4 0 .5-1.4 1.6-5.3 1.6s-5.7-1.1-5.7-1.6c0-.2.2-.4.5-.4Z" fill="#c8462c"/>
   </svg>
 `)}`;
 
 const visualStudioCodeIcon = `data:image/svg+xml;utf8,${encodeURIComponent(`
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="16" fill="#f8fafc"/>
-    <path d="M23.8 5.8a1.5 1.5 0 0 1 2.2 1.35v17.7a1.5 1.5 0 0 1-2.2 1.34l-9.2-4.5-5.1 4.65a1 1 0 0 1-1.66-.74v-4.06l4.56-4.13-4.56-4.13V9.3a1 1 0 0 1 1.66-.74l5.1 4.65 9.2-7.41Z" fill="#1e293b"/>
-    <path d="m14.6 13.21 6.56-4.99v15.56l-6.56-3.18-4.23-3.1 4.23-4.29Z" fill="#e85d75"/>
+    <path d="M23.8 5.8a1.5 1.5 0 0 1 2.2 1.35v17.7a1.5 1.5 0 0 1-2.2 1.34l-9.2-4.5-5.1 4.65a1 1 0 0 1-1.66-.74v-4.06l4.56-4.13-4.56-4.13V9.3a1 1 0 0 1 1.66-.74l5.1 4.65 9.2-7.41Z" fill="#111111"/>
+    <path d="m14.6 13.21 6.56-4.99v15.56l-6.56-3.18-4.23-3.1 4.23-4.29Z" fill="#c8462c"/>
   </svg>
 `)}`;
 
 function getSkillIcon(label) {
   const iconMap = {
     Java: javaIcon,
-    Python: "https://cdn.simpleicons.org/python/1e293b",
-    JavaScript: "https://cdn.simpleicons.org/javascript/1e293b",
-    HTML: "https://cdn.simpleicons.org/html5/1e293b",
-    CSS: "https://cdn.simpleicons.org/css/1e293b",
-    Git: "https://cdn.simpleicons.org/git/1e293b",
-    GitHub: "https://cdn.simpleicons.org/github/1e293b",
+    Python: "https://cdn.simpleicons.org/python/111111",
+    JavaScript: "https://cdn.simpleicons.org/javascript/111111",
+    HTML: "https://cdn.simpleicons.org/html5/111111",
+    CSS: "https://cdn.simpleicons.org/css/111111",
+    Git: "https://cdn.simpleicons.org/git/111111",
+    GitHub: "https://cdn.simpleicons.org/github/111111",
     "Visual Studio Code": visualStudioCodeIcon,
-    "Raspberry Pi": "https://cdn.simpleicons.org/raspberrypi/1e293b",
-    Figma: "https://cdn.simpleicons.org/figma/1e293b",
-    Framer: "https://cdn.simpleicons.org/framer/1e293b",
-    React: "https://cdn.simpleicons.org/react/1e293b",
-    "Next.js": "https://cdn.simpleicons.org/nextdotjs/1e293b",
-    Flask: "https://cdn.simpleicons.org/flask/1e293b",
-    "scikit-learn": "https://cdn.simpleicons.org/scikitlearn/1e293b",
-    Pandas: "https://cdn.simpleicons.org/pandas/1e293b",
-    NumPy: "https://cdn.simpleicons.org/numpy/1e293b",
-    PyTorch: "https://cdn.simpleicons.org/pytorch/1e293b",
+    "Raspberry Pi": "https://cdn.simpleicons.org/raspberrypi/111111",
+    Figma: "https://cdn.simpleicons.org/figma/111111",
+    Framer: "https://cdn.simpleicons.org/framer/111111",
+    React: "https://cdn.simpleicons.org/react/111111",
+    "Next.js": "https://cdn.simpleicons.org/nextdotjs/111111",
+    Flask: "https://cdn.simpleicons.org/flask/111111",
+    "scikit-learn": "https://cdn.simpleicons.org/scikitlearn/111111",
+    Pandas: "https://cdn.simpleicons.org/pandas/111111",
+    NumPy: "https://cdn.simpleicons.org/numpy/111111",
+    PyTorch: "https://cdn.simpleicons.org/pytorch/111111",
     PyAutoGUI: pyAutoGuiIcon,
-    MySQL: "https://cdn.simpleicons.org/mysql/1e293b",
-    SQLite: "https://cdn.simpleicons.org/sqlite/1e293b",
+    MySQL: "https://cdn.simpleicons.org/mysql/111111",
+    SQLite: "https://cdn.simpleicons.org/sqlite/111111",
   };
 
   return iconMap[label];
@@ -243,7 +249,7 @@ const workItems = [
       <>
         Greenhill School — Addison, TX
         <br />
-        Junior (Class of 2027) · GPA: 3.95
+        Junior (Class of 2027) · GPA: 4.01
         <br />
         Relevant Coursework: AP Calculus BC, AP Physics 2, AP Computer Science
         A, Honors Applied Computer Science, Honors UX Design
@@ -315,11 +321,22 @@ function getRouteFromHash() {
 }
 
 function SectionHeading({ eyebrow, title, note }) {
+  const headingRef = useRef(null);
+
   return (
     <div className="section-heading section-heading-row">
-      <div>
+      <div ref={headingRef}>
         <p className="eyebrow">{eyebrow}</p>
-        <h2>{title}</h2>
+        <h2>
+          <VariableProximity
+            label={title}
+            containerRef={headingRef}
+            radius={130}
+            falloff="gaussian"
+            fromFontVariationSettings="'wght' 700, 'wdth' 100"
+            toFontVariationSettings="'wght' 800, 'wdth' 118"
+          />
+        </h2>
       </div>
       <div className="section-heading-meta">
         {note ? <p className="section-note">{note}</p> : null}
@@ -360,6 +377,7 @@ function ImageFrame({ label, detail, src, href, alt, className = "" }) {
 }
 
 function ProjectCard({ project }) {
+  const titleRef = useRef(null);
   const projectLinks = [
     {
       label: project.primaryLinkLabel,
@@ -380,7 +398,16 @@ function ProjectCard({ project }) {
         src={project.imageSrc}
         detail="Replace with screenshot, mockup, or cover image"
       />
-      <h3>{project.title}</h3>
+      <h3 ref={titleRef}>
+        <VariableProximity
+          label={project.title}
+          containerRef={titleRef}
+          radius={92}
+          falloff="linear"
+          fromFontVariationSettings="'wght' 600, 'wdth' 100"
+          toFontVariationSettings="'wght' 760, 'wdth' 112"
+        />
+      </h3>
       <p>{project.summary}</p>
       {projectLinks.length ? (
         <div className="project-footer">
@@ -401,6 +428,8 @@ function ProjectCard({ project }) {
 }
 
 function WorkCard({ item }) {
+  const titleRef = useRef(null);
+
   return (
     <article className="work-highlight card">
       <p className="card-label">{item.label}</p>
@@ -412,7 +441,16 @@ function WorkCard({ item }) {
         className={item.imageHref ? "work-image-link" : ""}
         detail="Replace with team photo, logo, or role snapshot"
       />
-      <h3>{item.title}</h3>
+      <h3 ref={titleRef}>
+        <VariableProximity
+          label={item.title}
+          containerRef={titleRef}
+          radius={92}
+          falloff="linear"
+          fromFontVariationSettings="'wght' 600, 'wdth' 100"
+          toFontVariationSettings="'wght' 760, 'wdth' 112"
+        />
+      </h3>
       <p>{item.description}</p>
     </article>
   );
@@ -452,6 +490,19 @@ function HomePage() {
   return (
     <>
       <section className="hero section">
+        <div className="hero-ether-field" aria-hidden="true">
+          <Suspense fallback={null}>
+            <LiquidEther
+              colors={liquidEtherColors}
+              mouseForce={18}
+              resolution={0.6}
+              autoDemo
+              autoSpeed={0.42}
+              autoIntensity={1.6}
+            />
+          </Suspense>
+        </div>
+
         <div className="hero-media hero-reveal hero-reveal-1">
           <div className="hero-image-frame" aria-label="Profile image">
             <div className="hero-image-placeholder">
@@ -462,7 +513,7 @@ function HomePage() {
           </div>
           <div className="hero-media-note card hero-reveal hero-reveal-4">
             <p className="card-label">Based In</p>
-            <p>📍 Dallas, TX</p>
+            <p>Dallas, TX</p>
           </div>
           <div className="hero-media-note hero-fun card hero-reveal hero-reveal-5">
             <p className="card-label">About Me</p>
@@ -474,9 +525,8 @@ function HomePage() {
               building, and looking for new challenges to tackle.
             </p>
             <p>
-              In my free time, I like watching movies and shows 🎬, playing
-              video games 🎮, eating with friends 🍔, and playing basketball and
-              golf 🏀⛳️.
+              In my free time, I like watching movies and shows, playing video
+              games, eating with friends, and playing basketball and golf.
             </p>
           </div>
         </div>
@@ -490,11 +540,22 @@ function HomePage() {
             I build AI tools, explore machine learning, and create technology
             for real-world impact.
           </p>
+          <div className="hero-pressure" aria-label="AI and impact">
+            <Suspense fallback={null}>
+              <TextPressure
+                text="AI + IMPACT"
+                textColor="#111111"
+                strokeColor="#c8462c"
+                minFontSize={34}
+                stroke
+              />
+            </Suspense>
+          </div>
           <div className="hero-actions hero-reveal hero-reveal-4">
-            <a className="button button-primary" href="#/section/projects">
+            <a className="btn btn--primary" href="#/section/projects">
               View Projects
             </a>
-            <a className="button button-secondary" href="#/contact">
+            <a className="btn btn--ghost" href="#/contact">
               Get In Touch
             </a>
           </div>
@@ -513,7 +574,7 @@ function HomePage() {
       <section className="section" id="work">
         <SectionHeading
           eyebrow="Work"
-          title="Places I’ve worked, learned, and contributed."
+          title="Places where I’ve worked and learned."
           note="These experiences have helped me develop technical skills, collaborate with others, and apply what I’m learning to real-world problems."
         />
 
@@ -577,7 +638,7 @@ function HomePage() {
               <h3>Resume</h3>
 
               <a
-                className="button button-secondary"
+                className="btn btn--ghost"
                 href={resumePdf}
                 target="_blank"
                 rel="noreferrer"
@@ -617,6 +678,12 @@ function WorkPage() {
         note="This section highlights what I build, how I approach problems, and the skills I bring to my work. It outlines my core capabilities and areas of focus beyond the featured projects on the homepage."
       />
 
+      <div className="archive-actions">
+        <a className="btn btn--ghost" href="#/">
+          Back to main page
+        </a>
+      </div>
+
       <div className="work-grid">
         {workItems.map((item) => (
           <WorkCard key={item.title} item={item} />
@@ -654,6 +721,12 @@ function ProjectsPage() {
         title="All Projects"
         note="A fuller archive of the tools, research systems, and experiments I’ve built across AI, healthcare, automation, and civic technology."
       />
+
+      <div className="archive-actions">
+        <a className="btn btn--ghost" href="#/">
+          Back to main page
+        </a>
+      </div>
 
       <div className="project-grid project-grid-expanded">
         {allProjects.map((project) => (

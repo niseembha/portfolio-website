@@ -1,91 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap");
-
-:root {
-  --color-background: #fdfbf7;
-  --color-surface: #ffffff;
-  --color-surface-warm: #fffaf3;
-  --color-border: #eadfd3;
-  --color-border-strong: #dac9b7;
-  --color-heading: #262626;
-  --color-body: #3f3f3f;
-  --color-muted: #666666;
-  --color-accent: #bf5700;
-  --color-accent-dark: #8f3f00;
-  --color-accent-soft: #fff1df;
-  --color-button-text: #fffaf3;
-  --shadow-card: 0 12px 32px rgba(38, 38, 38, 0.07);
-  --shadow-hover: 0 18px 42px rgba(38, 38, 38, 0.1);
-  --font-sans: "Inter", "Avenir Next", "Segoe UI", sans-serif;
-  --font-display: "Source Serif 4", Georgia, serif;
-  color: var(--color-body);
-  background: var(--color-background);
-  font-family: var(--font-sans);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.65;
-  font-weight: 400;
-}
-
-* {
-  box-sizing: border-box;
-}
+@import "./system.css";
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  background:
-    linear-gradient(180deg, #fffaf3 0%, #fdfbf7 42%, #ffffff 100%);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(191, 87, 0, 0.035) 1px, transparent 1px),
-    linear-gradient(rgba(191, 87, 0, 0.028) 1px, transparent 1px);
-  background-size: 88px 88px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 58%);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-h1,
-h2,
-h3 {
-  color: var(--color-heading);
-  font-family: var(--font-display);
-  line-height: 1.04;
-  letter-spacing: 0;
-}
-
-h1 {
-  font-size: clamp(3.4rem, 6.2rem, 6.2rem);
-}
-
-h2 {
-  font-size: clamp(2.05rem, 3.15rem, 3.15rem);
-  margin: 0;
-}
-
-h3 {
-  font-size: 1.35rem;
-  margin: 0;
 }
 
 p {
@@ -94,18 +10,4 @@ p {
 
 #root {
   min-height: 100svh;
-}
-
-@media (max-width: 640px) {
-  :root {
-    font-size: 15px;
-  }
-
-  h1 {
-    font-size: 3.35rem;
-  }
-
-  h2 {
-    font-size: 2.15rem;
-  }
 }
