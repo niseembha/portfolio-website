@@ -171,7 +171,6 @@
     filter var(--dur-base) var(--ease-out);
 }
 
-.hero-image-placeholder:hover img,
 .image-placeholder:hover .card-image {
   filter: grayscale(1) contrast(1.08);
   transform: scale(1.025);
@@ -692,7 +691,6 @@
   .resume-card:hover,
   .contact-card:hover,
   .contact-icon-link:hover,
-  .hero-image-placeholder:hover img,
   .image-placeholder:hover .card-image {
     transform: none;
   }
