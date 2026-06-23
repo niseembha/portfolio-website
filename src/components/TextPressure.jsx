@@ -29,8 +29,8 @@ const debounce = (func, delay) => {
 
 function TextPressure({
   text = "Compressa",
-  fontFamily = "Compressa VF",
-  fontUrl = "https://res.cloudinary.com/dr6lvwubh/raw/upload/v1529908256/CompressaPRO-GX.woff2",
+  fontFamily = "Roboto Flex",
+  fontUrl = "https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap",
   width = true,
   weight = true,
   italic = true,
@@ -55,6 +55,9 @@ function TextPressure({
   const [lineHeight, setLineHeight] = useState(1);
 
   const chars = useMemo(() => text.split(""), [text]);
+  const usesCssFontImport =
+    fontUrl &&
+    (fontUrl.includes("fonts.googleapis.com") || /\.css(?:[?#].*)?$/i.test(fontUrl));
 
   useEffect(() => {
     reducedMotionRef.current = window.matchMedia(
@@ -169,7 +172,12 @@ function TextPressure({
     () => (
       <style>{`
         ${
-          fontUrl
+          fontUrl && usesCssFontImport
+            ? `@import url('${fontUrl}');`
+            : ""
+        }
+        ${
+          fontUrl && !usesCssFontImport
             ? `@font-face {
               font-family: '${fontFamily}';
               src: url('${fontUrl}');
@@ -205,7 +213,7 @@ function TextPressure({
         }
       `}</style>
     ),
-    [fontFamily, fontUrl, textColor, strokeColor],
+    [fontFamily, fontUrl, strokeColor, textColor, usesCssFontImport],
   );
 
   const dynamicClassName = [
