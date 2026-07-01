@@ -350,6 +350,86 @@
   font-size: 12px;
 }
 
+.log-date,
+.log-edit-form {
+  display: flex;
+  align-items: center;
+}
+
+.log-date {
+  gap: 10px;
+}
+
+.edit-log-entry,
+.save-log-edit,
+.cancel-log-edit {
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid var(--color-hairline);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-stone);
+  font: 500 11px/1 var(--font-body);
+  cursor: pointer;
+}
+
+.edit-log-entry {
+  min-height: 30px;
+  padding: 5px 8px;
+}
+
+.edit-log-entry:hover,
+.cancel-log-edit:hover {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.log-edit-form {
+  gap: 7px;
+}
+
+.log-edit-form .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.log-edit-form input {
+  width: 58px;
+  min-height: 36px;
+  padding: 6px 8px;
+  border: 1px solid var(--color-hairline);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font: 500 13px/1 var(--font-mono);
+}
+
+.save-log-edit {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+}
+
+.save-log-edit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.edit-log-entry:focus-visible,
+.save-log-edit:focus-visible,
+.cancel-log-edit:focus-visible,
+.log-edit-form input:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
 .hour-squares {
   display: flex;
   flex-wrap: wrap;
@@ -464,6 +544,31 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 9px;
+  }
+
+  .log-date {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .edit-log-entry,
+  .save-log-edit,
+  .cancel-log-edit,
+  .log-edit-form input {
+    min-height: 44px;
+  }
+
+  .log-edit-form {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .log-edit-form label {
+    flex: 1 1 auto;
+  }
+
+  .log-edit-form input {
+    width: 100%;
   }
 
   .hour-squares {

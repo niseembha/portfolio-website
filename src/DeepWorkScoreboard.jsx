@@ -67,6 +67,8 @@ function DeepWorkScoreboard() {
   );
   const [message, setMessage] = useState("");
   const [celebrationId, setCelebrationId] = useState(0);
+  const [editingDate, setEditingDate] = useState(null);
+  const [editHours, setEditHours] = useState("");
 
   useEffect(() => {
     document.title = "Deep Work Scoreboard";
@@ -127,6 +129,40 @@ function DeepWorkScoreboard() {
   function handleHourClick(index) {
     setDraftHours(index < draftHours ? index : index + 1);
     setMessage("");
+  }
+
+  function startEditing(entry) {
+    setEditingDate(entry.date);
+    setEditHours(String(entry.hours));
+  }
+
+  function cancelEditing() {
+    setEditingDate(null);
+    setEditHours("");
+  }
+
+  function handleEditHoursChange(event) {
+    const value = event.target.value;
+
+    if (value === "" || (/^\d{1,2}$/.test(value) && Number(value) <= 12)) {
+      setEditHours(value);
+    }
+  }
+
+  function saveEditedEntry(event) {
+    event.preventDefault();
+
+    if (editHours === "") return;
+
+    const hours = Number(editHours);
+    const nextEntries = entries.map((entry) =>
+      entry.date === editingDate ? { ...entry, hours } : entry,
+    );
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(nextEntries));
+    setEntries(nextEntries);
+    if (editingDate === today) setDraftHours(hours);
+    cancelEditing();
   }
 
   return (
@@ -244,8 +280,43 @@ function DeepWorkScoreboard() {
           <ol className="log-list">
             {sortedEntries.map((entry) => (
               <li className="log-row" key={entry.date}>
-                <time dateTime={entry.date}>{formatDate(entry.date)}</time>
-                <HourSquares hours={entry.hours} />
+                <div className="log-date">
+                  <time dateTime={entry.date}>{formatDate(entry.date)}</time>
+                  {editingDate !== entry.date ? (
+                    <button
+                      className="edit-log-entry"
+                      type="button"
+                      onClick={() => startEditing(entry)}
+                    >
+                      Edit
+                    </button>
+                  ) : null}
+                </div>
+                {editingDate === entry.date ? (
+                  <form className="log-edit-form" onSubmit={saveEditedEntry}>
+                    <label>
+                      <span className="visually-hidden">Hours for {formatDate(entry.date)}</span>
+                      <input
+                        type="number"
+                        min="0"
+                        max="12"
+                        step="1"
+                        inputMode="numeric"
+                        value={editHours}
+                        onChange={handleEditHoursChange}
+                        autoFocus
+                      />
+                    </label>
+                    <button className="save-log-edit" type="submit" disabled={editHours === ""}>
+                      Save
+                    </button>
+                    <button className="cancel-log-edit" type="button" onClick={cancelEditing}>
+                      Cancel
+                    </button>
+                  </form>
+                ) : (
+                  <HourSquares hours={entry.hours} />
+                )}
               </li>
             ))}
           </ol>
