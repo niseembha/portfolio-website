@@ -108,7 +108,7 @@
   min-height: calc(100svh - 82px);
   padding-top: var(--space-3xl);
   padding-bottom: var(--space-3xl);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .hero-ether-field {
@@ -179,52 +179,10 @@
 .hero-content {
   grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: var(--space-lg) var(--gutter);
-  overflow: visible;
 }
 
 .hero-content > * {
   grid-column: 1 / -1;
-}
-
-.hero-intro-layout {
-  position: relative;
-  overflow: visible;
-}
-
-.hero-main-content {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  gap: var(--space-lg);
-  max-width: calc(100% - 21.5rem);
-  min-width: 0;
-  overflow: visible;
-}
-
-.hero-robot {
-  position: absolute;
-  bottom: 72px;
-  right: 3.5rem;
-  z-index: 1;
-  width: 17.5rem;
-  height: 32.5rem;
-  overflow: visible;
-  opacity: 0.72;
-  filter: saturate(0.78) contrast(0.95);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-
-.hero-robot canvas,
-.hero-robot > div {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.hero-robot canvas {
-  pointer-events: none;
-  transform: translateY(-35px) scale(0.9);
-  transform-origin: center bottom;
 }
 
 .hero h1 {
@@ -623,32 +581,6 @@
   width: 20px;
   height: 20px;
   fill: currentColor;
-}
-
-@media (max-width: 1100px) {
-  .hero-robot {
-    right: 1rem;
-    opacity: 0.35;
-  }
-
-  .hero-robot canvas {
-    transform: translateY(-35px) scale(0.6);
-    transform-origin: right bottom;
-  }
-
-  .hero-main-content {
-    max-width: calc(100% - 12.5rem);
-  }
-}
-
-@media (max-width: 700px) {
-  .hero-robot {
-    display: none;
-  }
-
-  .hero-main-content {
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 1024px) {
