@@ -14,6 +14,7 @@ import resumePdf from "./assets/resume.pdf";
 import tableOfHopeImage from "./assets/tableofhope.png";
 import VariableProximity from "./components/VariableProximity";
 
+const HeroRobot = lazy(() => import("./components/HeroRobot"));
 const LiquidEther = lazy(() => import("./components/LiquidEther"));
 const TextPressure = lazy(() => import("./components/TextPressure"));
 
@@ -532,32 +533,39 @@ function HomePage() {
         </div>
 
         <div className="hero-content">
-          <p className="eyebrow hero-reveal hero-reveal-1">Portfolio</p>
-          <h1 className="hero-reveal hero-reveal-2">
-            Hi, I&apos;m <span className="hero-accent">Niseem</span>.
-          </h1>
-          <p className="hero-text hero-reveal hero-reveal-3">
-            I build AI tools, explore machine learning, and create technology
-            for real-world impact.
-          </p>
-          <div className="hero-pressure" aria-label="AI and impact">
+          <div className="hero-intro-layout">
+            <div className="hero-main-content">
+              <p className="eyebrow hero-reveal hero-reveal-1">Portfolio</p>
+              <h1 className="hero-reveal hero-reveal-2">
+                Hi, I&apos;m <span className="hero-accent">Niseem</span>.
+              </h1>
+              <p className="hero-text hero-reveal hero-reveal-3">
+                I build AI tools, explore machine learning, and create
+                technology for real-world impact.
+              </p>
+              <div className="hero-pressure" aria-label="AI and impact">
+                <Suspense fallback={null}>
+                  <TextPressure
+                    text="AI + IMPACT"
+                    textColor="#111111"
+                    strokeColor="#c8462c"
+                    minFontSize={34}
+                    stroke
+                  />
+                </Suspense>
+              </div>
+              <div className="hero-actions hero-reveal hero-reveal-4">
+                <a className="btn btn--primary" href="#/section/projects">
+                  View Projects
+                </a>
+                <a className="btn btn--ghost" href="#/contact">
+                  Get In Touch
+                </a>
+              </div>
+            </div>
             <Suspense fallback={null}>
-              <TextPressure
-                text="AI + IMPACT"
-                textColor="#111111"
-                strokeColor="#c8462c"
-                minFontSize={34}
-                stroke
-              />
+              <HeroRobot />
             </Suspense>
-          </div>
-          <div className="hero-actions hero-reveal hero-reveal-4">
-            <a className="btn btn--primary" href="#/section/projects">
-              View Projects
-            </a>
-            <a className="btn btn--ghost" href="#/contact">
-              Get In Touch
-            </a>
           </div>
 
           <div className="skill-strip card hero-reveal hero-reveal-4">
