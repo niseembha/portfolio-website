@@ -14,10 +14,8 @@ import resumePdf from "./assets/resume.pdf";
 import tableOfHopeImage from "./assets/tableofhope.png";
 import VariableProximity from "./components/VariableProximity";
 
-const LiquidEther = lazy(() => import("./components/LiquidEther"));
+const ImpactField = lazy(() => import("./components/ImpactField"));
 const TextPressure = lazy(() => import("./components/TextPressure"));
-
-const liquidEtherColors = ["#111111", "#c8462c", "#8a857c"];
 
 const contactLinks = [
   {
@@ -490,16 +488,9 @@ function HomePage() {
   return (
     <>
       <section className="hero section">
-        <div className="hero-ether-field" aria-hidden="true">
+        <div className="hero-impact-field">
           <Suspense fallback={null}>
-            <LiquidEther
-              colors={liquidEtherColors}
-              mouseForce={18}
-              resolution={0.6}
-              autoDemo
-              autoSpeed={0.42}
-              autoIntensity={1.6}
-            />
+            <ImpactField />
           </Suspense>
         </div>
 

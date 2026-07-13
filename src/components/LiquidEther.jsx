@@ -111,6 +111,23 @@ function makePaletteTexture(colors) {
   return texture;
 }
 
+function canUseWebGL() {
+  try {
+    const canvas = document.createElement("canvas");
+    const options = { alpha: true, antialias: false };
+    const context =
+      canvas.getContext("webgl2", options) ||
+      canvas.getContext("webgl", options) ||
+      canvas.getContext("experimental-webgl", options);
+
+    if (!context) return false;
+    context.getExtension("WEBGL_lose_context")?.loseContext();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export default function LiquidEther({
   colors = ["#111111", "#c8462c", "#8a857c"],
   mouseForce = 20,
@@ -133,11 +150,25 @@ export default function LiquidEther({
       return undefined;
     }
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
-      powerPreference: "high-performance",
-    });
+    if (!canUseWebGL()) {
+      mount.dataset.webgl = "unavailable";
+      return undefined;
+    }
+
+    let renderer;
+
+    try {
+      renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        powerPreference: "high-performance",
+      });
+    } catch {
+      mount.dataset.webgl = "unavailable";
+      return undefined;
+    }
+
+    delete mount.dataset.webgl;
     renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     mount.prepend(renderer.domElement);
