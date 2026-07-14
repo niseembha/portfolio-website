@@ -637,7 +637,7 @@ ul {
   align-items: end;
 }
 
-/* Cursor companion */
+/* Hero robot */
 
 .robot-stage {
   --look-x: 0;
@@ -651,22 +651,6 @@ ul {
   pointer-events: none;
   perspective: 900px;
   transform: translateX(-50%);
-}
-
-.robot-stage__meta {
-  position: absolute;
-  top: 12px;
-  right: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 9px;
-  color: rgb(var(--rgb-light) / 0.38);
-  border-bottom: 1px solid rgb(var(--rgb-light) / 0.12);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
 }
 
 .robot-orbit {
@@ -2713,10 +2697,6 @@ ul {
     top: 45%;
     width: calc(100vw - 32px);
     height: 300px;
-  }
-
-  .robot-stage__meta {
-    font-size: 7px;
   }
 
   .hero-copy h1 {

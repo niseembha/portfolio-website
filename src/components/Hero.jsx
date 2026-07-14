@@ -43,7 +43,6 @@ export function Hero() {
       </div>
       <div className="hero-index" aria-hidden="true">
         <span>Portfolio / 2026</span>
-        <span>Scroll to explore</span>
       </div>
     </section>
   )

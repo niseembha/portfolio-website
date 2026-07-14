@@ -39,8 +39,8 @@ export function AboutContact() {
           <span>BUILD · QUESTION · LEARN · SHIP · </span>
         </div>
         <div className="shell contact-inner" data-reveal>
-          <p className="eyebrow">Have an ambitious idea?</p>
-          <h2 id="contact-title">Let’s make it useful.</h2>
+          <p className="eyebrow">Engineering for the future</p>
+          <h2 id="contact-title">Let’s connect</h2>
           <a className="contact-email" href={links.email}>
             niseem2008@gmail.com <ArrowUpRight size={36} />
           </a>

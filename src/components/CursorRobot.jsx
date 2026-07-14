@@ -52,10 +52,6 @@ export function CursorRobot() {
 
   return (
     <div className="robot-stage" ref={stageRef} aria-hidden="true">
-      <div className="robot-stage__meta">
-        <span>Interactive 02</span>
-        <span>Cursor companion</span>
-      </div>
       <div className="robot-orbit robot-orbit-one" />
       <div className="robot-orbit robot-orbit-two" />
       <div className="robot-shadow" />
