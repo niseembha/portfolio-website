@@ -114,10 +114,6 @@ p {
 }
 
 .scoreboard-totals {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 40px;
-  align-items: end;
   padding: 48px 0;
   border-bottom: var(--rule-hairline);
 }
@@ -148,48 +144,11 @@ p {
   font-size: 14px;
 }
 
-.week-total {
-  display: grid;
-  gap: 2px;
-  min-width: 112px;
-  padding-left: 20px;
-  border-left: var(--rule-hairline);
-}
-
-.week-total span,
 .today-count,
 .wall-heading > span,
 .log-heading > span {
   color: var(--color-stone);
   font-size: 12px;
-}
-
-.week-total strong {
-  color: var(--color-ink);
-  font-family: var(--font-display);
-  font-size: 26px;
-  line-height: 1.2;
-}
-
-.week-total progress {
-  width: 100%;
-  height: 4px;
-  margin-top: 8px;
-  border: 0;
-  background: color-mix(in srgb, var(--color-hairline) 14%, transparent);
-  appearance: none;
-}
-
-.week-total progress::-webkit-progress-bar {
-  background: color-mix(in srgb, var(--color-hairline) 14%, transparent);
-}
-
-.week-total progress::-webkit-progress-value {
-  background: var(--color-signal);
-}
-
-.week-total progress::-moz-progress-bar {
-  background: var(--color-signal);
 }
 
 .scoreboard-entry {
@@ -595,17 +554,6 @@ p {
   .scoreboard-page {
     width: min(100% - 32px, 760px);
     padding-top: 40px;
-  }
-
-  .scoreboard-totals {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .week-total {
-    padding: 12px 0 0;
-    border-top: var(--rule-hairline);
-    border-left: 0;
   }
 
   .scoreboard-entry {

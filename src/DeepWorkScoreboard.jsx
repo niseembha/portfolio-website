@@ -48,13 +48,6 @@ function readEntries() {
   return initialEntries;
 }
 
-function getStartOfWeek() {
-  const date = new Date();
-  const daysSinceMonday = (date.getDay() + 6) % 7;
-  date.setDate(date.getDate() - daysSinceMonday);
-  return getLocalDateKey(date);
-}
-
 function formatDate(dateKey, includeWeekday = true) {
   const [year, month, day] = dateKey.split("-").map(Number);
   return new Intl.DateTimeFormat("en-US", {
@@ -129,11 +122,6 @@ function DeepWorkScoreboard() {
     (total, entry) => total + entry.hours,
     0,
   );
-  const startOfWeek = getStartOfWeek();
-  const weekTotal = entries
-    .filter((entry) => entry.date >= startOfWeek && entry.date <= today)
-    .reduce((total, entry) => total + entry.hours, 0);
-
   function submitToday() {
     const nextEntries = [
       ...entries.filter((entry) => entry.date !== today),
@@ -206,13 +194,6 @@ function DeepWorkScoreboard() {
           <span className="total-label">Lifetime</span>
           <strong>{lifetimeTotal}</strong>
           <span className="total-unit">{lifetimeTotal === 1 ? "hour" : "hours"}</span>
-        </div>
-        <div className="week-total">
-          <span>This week</span>
-          <strong>{weekTotal} of 12 hours</strong>
-          <progress value={Math.min(weekTotal, 12)} max="12">
-            {Math.min(weekTotal, 12)} of 12 hours
-          </progress>
         </div>
       </section>
 
