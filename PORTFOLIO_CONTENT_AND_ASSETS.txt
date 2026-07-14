@@ -1,0 +1,666 @@
+NISEEM BHATTACHARYA — PORTFOLIO CONTENT AND ASSET HANDOFF
+===========================================================
+
+Purpose
+-------
+This file collects the reusable text, links, and local media references from the
+current portfolio repository so a new portfolio can be built without rewriting
+or hunting down assets.
+
+Repository root:
+/Users/niseembhattacharya/Documents/Coding/portfolio-website/niseem-bhattacharya-portfolio-website
+
+Current live-site URL listed in README:
+https://niseembha.github.io/portfolio-website/
+
+Primary source of current website copy:
+src/App.jsx
+
+
+1. IDENTITY, CONTACT, AND SOCIAL LINKS
+======================================
+
+Name / brand:
+Niseem Bhattacharya
+
+Location:
+Dallas, TX
+
+Email:
+niseem2008@gmail.com
+mailto:niseem2008@gmail.com
+
+Phone (from résumé):
+214-797-7330
+
+GitHub:
+https://github.com/niseembha
+
+LinkedIn (current website URL):
+https://www.linkedin.com/in/niseem-bhattacharya-b48907363/
+
+LinkedIn text shown in résumé:
+linkedin.com/in/niseem-bhattacharya
+
+
+2. PAGE TITLE, NAVIGATION, AND GENERAL UI COPY
+==============================================
+
+Browser/page title:
+Niseem Bhattacharya
+
+Navigation:
+Home
+Work
+Projects
+Contact
+
+Buttons and links:
+View Projects
+Get In Touch
+More work
+More projects
+Open PDF
+Back to main page
+
+
+3. HERO AND ABOUT COPY
+======================
+
+Eyebrow:
+Portfolio
+
+Main heading:
+Hi, I’m Niseem.
+
+Hero statement:
+I build AI tools, explore machine learning, and create technology for real-world impact.
+
+Display phrase:
+AI + IMPACT
+
+Location card:
+Based In
+Dallas, TX
+
+About Me
+I build technology that solves real problems.
+
+From creating AI tools to working on nonprofit initiatives like Table of Hope,
+I enjoy exploring how technology can solve real problems and create meaningful
+impact. I’m always learning, building, and looking for new challenges to tackle.
+
+In my free time, I like watching movies and shows, playing video games, eating
+with friends, and playing basketball and golf.
+
+
+4. SKILLS STACK
+===============
+
+Languages:
+Java
+Python
+JavaScript
+HTML
+CSS
+
+Tools:
+Git
+GitHub
+Visual Studio Code
+Raspberry Pi
+Figma
+Framer
+
+Frameworks & Libraries:
+React
+Next.js
+Flask
+scikit-learn
+Pandas
+NumPy
+PyTorch
+PyAutoGUI
+
+Databases:
+MySQL
+SQLite
+
+
+5. WORK / EXPERIENCE / EDUCATION / COMMUNITY COPY
+=================================================
+
+Homepage section:
+Work
+Places where I’ve worked and learned.
+These experiences have helped me develop technical skills, collaborate with
+others, and apply what I’m learning to real-world problems.
+
+All-work page:
+Work
+All Work Experiences
+This section highlights what I build, how I approach problems, and the skills I
+bring to my work. It outlines my core capabilities and areas of focus beyond the
+featured projects on the homepage.
+
+
+DATACOLOR.AI
+Role label: Software Engineer Intern
+Title: Datacolor.ai
+
+Website card description:
+Built a full-stack AI-powered grant platform integrating federal and private
+data sources with scalable caching for efficient retrieval. Implemented
+intelligent matching and PDF analysis to evaluate and summarize grant
+opportunities for nonprofits.
+
+Organization link:
+https://datacolor.ai/
+
+Résumé details:
+Datacolor.ai, McKinney, TX
+May 2025 – August 2025
+Software Engineering Intern
+
+• Built a grant search platform integrating federal and private APIs with MySQL
+  for caching and retrieval.
+• Implemented AI-powered matching using OpenAI API to generate nonprofit
+  compatibility scores.
+• Developed a full-stack web application with a Flask backend and React frontend.
+• Added PDF upload and AI-driven analysis to extract and summarize grant
+  applications.
+
+
+INZPIREU
+Role label: Web Scraping & Data Extraction Intern
+Title: InzpireU
+
+Website card description:
+Built automated web-scraping pipelines using Python, Requests, and BeautifulSoup
+with authenticated access to collect large-scale grant data. Parsed, cleaned,
+and structured datasets into database-ready formats while implementing scalable
+ingestion workflows with duplicate detection and consistency checks.
+
+Organization link:
+https://www.inzpireu.com/
+
+Résumé details:
+InzpireU, Remote
+June 2025 – August 2025
+Web Scraping & Data Extraction Intern
+
+• Built automated web-scraping pipelines using Python, Requests, and
+  BeautifulSoup with authenticated access.
+• Parsed, cleaned, and structured large grant datasets into JSON and
+  database-ready formats.
+• Developed scalable ingestion workflows with duplicate detection and data
+  consistency checks.
+• Streamlined grant data collection processes to improve reliability and
+  efficiency.
+
+
+GREENHILL SCHOOL
+Label: Education
+Title: Greenhill School
+
+Website card text:
+Greenhill School — Addison, TX
+Junior (Class of 2027) · GPA: 4.01
+Relevant Coursework: AP Calculus BC, AP Physics 2, AP Computer Science A,
+Honors Applied Computer Science, Honors UX Design
+
+Organization link:
+https://www.greenhill.org/
+
+Résumé details:
+Junior | Greenhill School, Addison, TX
+GPA: 4.01
+Expected Graduation: May 2027
+
+Relevant Coursework: AP Calculus BC, AP Physics 2, AP Computer Science A,
+Honors Applied Computer Science, Honors UX Design, Harvard AI Bootcamp,
+Harvard CS50P
+
+
+HARVARD CS50P
+Label: Education
+Title: Harvard CS50's Introduction to Programming with Python
+
+Description:
+Completed Harvard's CS50's Introduction to Programming with Python, mastering
+foundational programming concepts, data structures, and algorithms. Built a
+python chess bot as my final project.
+
+Certificate/link:
+https://drive.google.com/file/d/1g9PXpdSNnX3UI8sUxBW_-2lvxvDlX6FG/view
+
+
+HARVARD AI BOOTCAMP
+Label: Education
+Title: Harvard AI Bootcamp
+
+Description:
+Completed Harvard's AI Bootcamp, gaining hands-on experience with machine
+learning algorithms, natural language processing, and computer vision. Built
+projects including a sentiment analysis tool and an image classifier using
+PyTorch.
+
+Certificate/link:
+https://drive.google.com/file/d/1lKFoPjhPkbQp4oEjsezRjgZF1Cy68jeQ/view
+
+
+TABLE OF HOPE DALLAS
+Role label: Co-Founder
+Title: Table of Hope Dallas
+
+Website card description:
+Co-founded a nonprofit dedicated to cooking and delivering meals to underserved
+communities, helping prepare and distribute over 1,000 meals with a volunteer
+team. Designed and launched the organization’s website using Framer and led
+social media efforts to grow engagement. Raised over $3,000 to support
+operations and expand outreach.
+
+Organization link:
+https://tableofhopedallas.org/
+
+Résumé details:
+Table of Hope Dallas, Texas
+January 2025 – Present
+Co-Founder
+
+• Co-founded a nonprofit focused on cooking and delivering meals to underserved
+  communities.
+• Designed and launched the organization’s website using Framer, managing
+  layout, branding, and content.
+• Prepared and distributed 1,000+ meals alongside a volunteer team.
+• Raised over $4,000 and led social media efforts to promote events and grow
+  community engagement.
+
+
+6. PROJECT COPY AND LINKS
+=========================
+
+Homepage section:
+Projects
+Some of the things I’ve been building.
+Projects at the intersection of AI, software, research, and curiosity.
+
+All-projects page:
+Projects
+All Projects
+A fuller archive of the tools, research systems, and experiments I’ve built
+across AI, healthcare, automation, and civic technology.
+
+
+PYTHON CHESS PUZZLE AUTO-SOLVER BOT
+Category: Chess Bot
+
+Website summary:
+Built a Python chess bot using Stockfish, OpenCV, and PyAutoGUI to automatically
+solve on-screen puzzles. Used computer vision to detect board state from live
+screen captures and convert it into FEN notation, enabling engine-driven move
+selection and autonomous gameplay.
+
+Demo Video:
+https://www.youtube.com/watch?v=jw0oQ7wH5rA
+
+GitHub:
+https://github.com/niseembha/chess-puzzle-bot
+
+Résumé details:
+Python Chess Puzzle Auto-Solver Bot
+November 2025
+
+• Built a Python chess bot using Stockfish, PyAutoGUI, and OpenCV to solve
+  on-screen puzzles.
+• Used computer vision to detect board state and piece positions from live
+  screen captures.
+• Translated visual board data into FEN notation to drive engine-selected moves.
+• Integrated automation and vision to move the mouse autonomously for repeated
+  puzzle execution.
+
+
+DIABETES RISK PREDICTION & PROGRESSION MODELING
+Category: Diabetes Research
+
+Website summary:
+Built a diabetes risk prediction model (ROC-AUC ~0.85) using logistic regression
+on 986 patient records, with a leakage-free validation pipeline. Developed a
+simulation engine to model weekly progression scenarios, and conducted the
+research under SMU professor Kasi Periyasamy for the Dallas Regional Science
+Fair.
+
+Display Board:
+https://drive.google.com/file/d/1-JsIRE4ojWB0ulnSyJsRCQfOvOFhH838/view?usp=sharing
+
+Colab Notebooks:
+https://docs.google.com/document/d/100_mn5hdXVUQiQkVFQ8cCMYLEsQMgA9KD0sDzxCyBeE/edit?tab=t.0
+
+Résumé details:
+Diabetes Risk Prediction & Progression Modeling
+May 2025 – Present
+
+• Trained a logistic regression model on 986 patient records to predict
+  diabetes risk, achieving ROC-AUC ≈ 0.85.
+• Engineered a leakage-corrected stage classifier using scaling, imputation, and
+  stratified validation.
+• Built a simulated weekly progression engine modeling deterioration and
+  intervention risk scenarios.
+• Conducted research under mentorship of SMU professor Kasi Periyasamy;
+  competed in Dallas Regional Science Fair.
+
+
+MEDSIGHT
+Category: HackSMU VII Clinical AI
+
+Website summary:
+Built an AI-powered clinical observation platform at HackSMU VII that turns
+passive smart-glasses data into structured behavioral telemetry and
+physician-facing reports. The system captures first-person context, extracts
+activity, engagement, and distraction signals, compares trends against patient
+baselines, and summarizes clinically useful follow-up insights.
+
+Devpost:
+https://devpost.com/software/medsight-bu2x7l
+
+Résumé details:
+MedSight (HackSMU VII Winner)
+April 2026
+
+• Built an AI platform that converts smart-glasses data into behavioral insights
+  for physicians.
+• Developed computer vision and LLM pipelines to quantify activity, engagement,
+  and distraction.
+• Designed a multi-layer analytics system for trend detection and longitudinal
+  monitoring.
+• Won Best Use of ElevenLabs at HackSMU VII among competing student teams.
+
+
+GRANTMATE
+Category: AI Grant Platform
+
+Website summary:
+Started this project during my internship at Datacolor, where I built an
+AI-powered grant discovery platform that aggregates public and private funding
+sources into a single searchable workflow for nonprofits. I then continued to
+develop and expand it, enhancing features like intelligent grant matching and
+PDF-based analysis to help teams quickly evaluate opportunities without
+navigating fragmented databases.
+
+No external GrantMate link is currently attached to the project card.
+
+
+7. COMPLETE RÉSUMÉ TEXT (AS EXTRACTED FROM resume.pdf)
+=====================================================
+
+Niseem Bhattacharya
+github.com/niseembha | Portfolio Website | linkedin.com/in/niseem-bhattacharya
+Dallas, TX | niseem2008@gmail.com | 214-797-7330
+
+EDUCATION
+Junior | Greenhill School, Addison, TX
+GPA: 4.01
+Expected Graduation: May 2027
+
+Relevant Coursework: AP Calculus BC, AP Physics 2, AP Computer Science A,
+Honors Applied Computer Science, Honors UX Design, Harvard AI Bootcamp,
+Harvard CS50P
+
+SKILLS
+Languages: Java, Python, JavaScript, HTML, CSS
+Tools: Git, GitHub, Visual Studio Code, Raspberry Pi, Figma, Framer
+Frameworks & Libraries: React, Next.js, Flask, scikit-learn, Pandas, NumPy,
+PyTorch, PyAutoGUI
+Databases: MySQL, SQLite
+
+EXPERIENCE
+Datacolor.ai, McKinney, TX — May 2025 – August 2025
+Software Engineering Intern
+• Built a grant search platform integrating federal and private APIs with MySQL
+  for caching and retrieval
+• Implemented AI-powered matching using OpenAI API to generate nonprofit
+  compatibility scores
+• Developed a full-stack web application with a Flask backend and React frontend
+• Added PDF upload and AI-driven analysis to extract and summarize grant
+  applications
+
+InzpireU, Remote — June 2025 – August 2025
+Web Scraping & Data Extraction Intern
+• Built automated web-scraping pipelines using Python, Requests, and
+  BeautifulSoup with authenticated access
+• Parsed, cleaned, and structured large grant datasets into JSON and
+  database-ready formats
+• Developed scalable ingestion workflows with duplicate detection and data
+  consistency checks
+• Streamlined grant data collection processes to improve reliability and
+  efficiency
+
+PROJECTS
+Python Chess Puzzle Auto-Solver Bot | GitHub | Demo Video — November 2025
+• Built a Python chess bot using Stockfish, PyAutoGUI, and OpenCV to solve
+  on-screen puzzles
+• Used computer vision to detect board state and piece positions from live
+  screen captures
+• Translated visual board data into FEN notation to drive engine-selected moves
+• Integrated automation and vision to move the mouse autonomously for repeated
+  puzzle execution
+
+Diabetes Risk Prediction & Progression Modeling | Colab Notebooks |
+Display Board — May 2025 – Present
+• Trained a logistic regression model on 986 patient records to predict diabetes
+  risk, achieving ROC-AUC ≈ 0.85
+• Engineered a leakage-corrected stage classifier using scaling, imputation, and
+  stratified validation
+• Built a simulated weekly progression engine modeling deterioration and
+  intervention risk scenarios
+• Conducted research under mentorship of SMU professor Kasi Periyasamy;
+  competed in Dallas Regional Science Fair
+
+MedSight (HackSMU VII Winner) | Devpost — April 2026
+• Built an AI platform that converts smart-glasses data into behavioral insights
+  for physicians
+• Developed computer vision and LLM pipelines to quantify activity, engagement,
+  and distraction
+• Designed a multi-layer analytics system for trend detection and longitudinal
+  monitoring
+• Won Best Use of ElevenLabs at HackSMU VII among competing student teams
+
+LEADERSHIP & COMMUNITY INVOLVEMENT
+Table of Hope Dallas, Texas — January 2025 – Present
+Co-Founder
+• Co-founded a nonprofit focused on cooking and delivering meals to underserved
+  communities
+• Designed and launched the organization’s website using Framer, managing
+  layout, branding, and content
+• Prepared and distributed 1,000+ meals alongside a volunteer team
+• Raised over $4,000 and led social media efforts to promote events and grow
+  community engagement
+
+
+8. LOCAL ASSET FILES — EXACT LOCATIONS
+======================================
+
+All paths below are relative to the repository root. Copy the entire src/assets
+folder into the new project to keep every portfolio image and the résumé.
+
+Profile photo:
+src/assets/profile-image.jpg
+JPEG, 200 × 200
+
+Python Chess Puzzle Auto-Solver Bot image:
+src/assets/chess-bot.png
+PNG, 2360 × 1450
+
+Diabetes Risk Prediction & Progression Modeling image:
+src/assets/diabetes.png
+PNG, 1632 × 1056
+
+MedSight image:
+src/assets/MedSight.jpg
+JPEG, 1920 × 1080
+Note: the filename uses capital M and S; preserve capitalization.
+
+GrantMate image:
+src/assets/grantmate.png
+PNG, 608 × 405
+
+Datacolor.ai image:
+src/assets/datacolor.jpeg
+JPEG, 800 × 800
+
+InzpireU image:
+src/assets/inzpireu.jpeg
+JPEG, 200 × 200
+
+Greenhill School image:
+src/assets/greenhill.png
+PNG, 1200 × 800
+
+Harvard CS50P image:
+src/assets/cs50p.jpg
+JPEG, 1280 × 720
+
+Harvard AI Bootcamp image:
+src/assets/harvardaibootcamp.png
+PNG, 2992 × 1592
+
+Table of Hope Dallas image:
+src/assets/tableofhope.png
+PNG, 150 × 150
+
+Résumé PDF:
+src/assets/resume.pdf
+
+Site favicon:
+public/favicon.svg
+
+Additional SVG icon sheet:
+public/icons.svg
+
+
+9. REMOTE VISUAL DEPENDENCIES (NOT STORED AS SEPARATE LOCAL FILES)
+=================================================================
+
+Most skill icons are loaded at runtime from Simple Icons. If the new site must
+work fully offline, download replacements or keep these remote URLs:
+
+Python: https://cdn.simpleicons.org/python/111111
+JavaScript: https://cdn.simpleicons.org/javascript/111111
+HTML: https://cdn.simpleicons.org/html5/111111
+CSS: https://cdn.simpleicons.org/css/111111
+Git: https://cdn.simpleicons.org/git/111111
+GitHub: https://cdn.simpleicons.org/github/111111
+Raspberry Pi: https://cdn.simpleicons.org/raspberrypi/111111
+Figma: https://cdn.simpleicons.org/figma/111111
+Framer: https://cdn.simpleicons.org/framer/111111
+React: https://cdn.simpleicons.org/react/111111
+Next.js: https://cdn.simpleicons.org/nextdotjs/111111
+Flask: https://cdn.simpleicons.org/flask/111111
+scikit-learn: https://cdn.simpleicons.org/scikitlearn/111111
+Pandas: https://cdn.simpleicons.org/pandas/111111
+NumPy: https://cdn.simpleicons.org/numpy/111111
+PyTorch: https://cdn.simpleicons.org/pytorch/111111
+MySQL: https://cdn.simpleicons.org/mysql/111111
+SQLite: https://cdn.simpleicons.org/sqlite/111111
+
+The Java, Visual Studio Code, and PyAutoGUI icons are embedded as data-URI SVG
+code directly inside src/App.jsx; they are not separate files. Copy those SVG
+definitions from src/App.jsx if you want the exact same custom icons.
+
+The GitHub, Gmail, and LinkedIn contact icons are also inline SVG paths inside
+src/App.jsx rather than separate asset files.
+
+The interactive “AI + IMPACT” display loads Roboto Flex from:
+https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap
+
+
+10. README-ONLY REPOSITORY DESCRIPTION
+======================================
+
+Niseem Bhattacharya – Portfolio Website
+
+This is my personal portfolio website built to showcase my projects,
+experience, and technical skills in software development, AI, and nonprofit
+work.
+
+Tech Stack listed in README:
+React
+Vite
+JavaScript (ES6+)
+HTML5 & CSS3
+Tailwind CSS (if you used it — remove if not)
+
+Features listed in README:
+• Responsive, modern UI design
+• Project showcase with detailed descriptions
+• Clean and minimal layout focused on usability
+• Fast performance using Vite
+
+Projects highlighted in README:
+GrantMate (Datacolor.ai)
+AI-powered grant matching platform with OpenAI integration and full-stack
+architecture.
+
+Diabetes Risk Prediction Model
+Machine learning model predicting diabetes risk with ROC-AUC ≈ 0.85 and
+simulated progression engine.
+
+Table of Hope Dallas
+Nonprofit initiative delivering meals to underserved communities, with full
+website and operations management.
+
+
+11. UNLISTED DEEP WORK SCOREBOARD COPY
+======================================
+
+This text belongs to the separate, unlisted /deep-work-scoreboard/ utility in
+the same repository. It is included for completeness but is not portfolio copy.
+
+Deep Work Scoreboard
+
+This is a personal Deep Work scoreboard. Each filled square represents one
+honest hour of focused, distraction-free deep work. This page is unlisted and
+mainly for my own accountability.
+
+Deep work logged
+Lifetime
+hours
+This week
+Today
+Be honest, count only real deep work, and round down.
+[number] / 12 hours
+Set today’s deep work hours
+Submit [number] hour/hours
+[number] hour/hours logged. The wall is up to date.
+Lifetime wall
+One square for every honest hour.
+[number] square/squares
+Your first square starts here.
+Daily log
+[number] day/days
+No hours logged yet.
+Edit
+Hours for [date]
+Save
+Cancel
+
+Source files:
+src/DeepWorkScoreboard.jsx
+src/DeepWorkScoreboard.css
+deep-work-scoreboard/index.html
+
+
+12. CONTENT CHECKS TO MAKE BEFORE PUBLISHING A NEW SITE
+======================================================
+
+• Table of Hope fundraising differs between sources: the website card says
+  “over $3,000,” while the résumé says “over $4,000.” Choose the current figure.
+• The current website’s LinkedIn URL includes “-b48907363”; the résumé displays
+  a shorter vanity-style path. Verify which URL should be used.
+• The README lists Tailwind CSS with the note “if you used it — remove if not.”
+  This appears to be template text and should be verified before reuse.
+• GrantMate currently has no external project link in src/App.jsx.
+• The résumé contains details not present in the cards, including dates, phone
+  number, MedSight’s HackSMU award, and more detailed bullets. They are preserved
+  above so they are not lost.
+
