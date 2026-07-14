@@ -11,6 +11,29 @@ const seeded = (value) => {
   return raw - Math.floor(raw)
 }
 
+const parseHexColor = (value) => {
+  const hex = value.trim().replace('#', '')
+  const expanded = hex.length === 3 ? [...hex].map((character) => character + character).join('') : hex
+  return [0, 2, 4].map((offset) => Number.parseInt(expanded.slice(offset, offset + 2), 16))
+}
+
+const colorWithAlpha = (color, alpha) => `rgba(${color.join(', ')}, ${alpha})`
+const mixColor = (start, end, amount) => start.map((channel, index) =>
+  Math.round(mix(channel, end[index], amount)),
+)
+
+const readVisualPalette = () => {
+  const styles = getComputedStyle(document.documentElement)
+  const read = (token) => parseHexColor(styles.getPropertyValue(token))
+  return {
+    raw: read('--visual-signal-raw'),
+    resolved: read('--visual-signal-resolved'),
+    waveStart: read('--visual-signal-wave-start'),
+    wavePeak: read('--visual-signal-wave-peak'),
+    blade: read('--visual-signal-blade'),
+  }
+}
+
 function valueText(value) {
   if (value < 10) return 'Raw signal'
   if (value < 45) return `${value} percent resolved`
@@ -52,6 +75,7 @@ export function SignalResolve({ onResolved }) {
     let visible = true
     let breathing = !reduced
     let idleUntil = performance.now() + 8000
+    let visualPalette = readVisualPalette()
 
     const buildSlices = () => {
       const rect = canvas.getBoundingClientRect()
@@ -177,13 +201,14 @@ export function SignalResolve({ onResolved }) {
         const drawWidth = Math.max(1, mix(slice.rawWidth, slice.width, eased))
 
         if (inWave > 0.05) {
-          context.fillStyle = `rgba(${Math.round(mix(214, 255, inWave))}, ${Math.round(
-            mix(255, 92, inWave),
-          )}, ${Math.round(mix(67, 54, inWave))}, ${mix(0.82, 1, inWave)})`
+          context.fillStyle = colorWithAlpha(
+            mixColor(visualPalette.waveStart, visualPalette.wavePeak, inWave),
+            mix(0.82, 1, inWave),
+          )
         } else if (local > 0.55) {
-          context.fillStyle = `rgba(242, 240, 232, ${mix(0.7, 0.98, local)})`
+          context.fillStyle = colorWithAlpha(visualPalette.resolved, mix(0.7, 0.98, local))
         } else {
-          context.fillStyle = `rgba(88, 105, 255, ${mix(0.24, 0.5, 1 - local)})`
+          context.fillStyle = colorWithAlpha(visualPalette.raw, mix(0.24, 0.5, 1 - local))
         }
         context.fillRect(x, y, drawWidth, slice.height)
       }
@@ -192,17 +217,17 @@ export function SignalResolve({ onResolved }) {
       if (!reduced) {
         const bladeX = width * (0.045 + clamp(current, 0, 1) * 0.91)
         const bladeGradient = context.createLinearGradient(0, wordTop - 42, 0, wordTop + wordHeight + 42)
-        bladeGradient.addColorStop(0, 'rgba(217,255,67,0)')
-        bladeGradient.addColorStop(0.18, 'rgba(217,255,67,.85)')
-        bladeGradient.addColorStop(0.82, 'rgba(217,255,67,.85)')
-        bladeGradient.addColorStop(1, 'rgba(217,255,67,0)')
+        bladeGradient.addColorStop(0, colorWithAlpha(visualPalette.blade, 0))
+        bladeGradient.addColorStop(0.18, colorWithAlpha(visualPalette.blade, 0.85))
+        bladeGradient.addColorStop(0.82, colorWithAlpha(visualPalette.blade, 0.85))
+        bladeGradient.addColorStop(1, colorWithAlpha(visualPalette.blade, 0))
         context.strokeStyle = bladeGradient
         context.lineWidth = 1
         context.beginPath()
         context.moveTo(bladeX, wordTop - 42)
         context.lineTo(bladeX, wordTop + wordHeight + 42)
         context.stroke()
-        context.fillStyle = '#d9ff43'
+        context.fillStyle = colorWithAlpha(visualPalette.blade, 1)
         context.fillRect(bladeX - 2, wordTop - 1, 4, 4)
       }
 
@@ -262,12 +287,17 @@ export function SignalResolve({ onResolved }) {
       visible = document.visibilityState === 'visible' && canvas.getBoundingClientRect().bottom > 0
       if (visible) requestDraw()
     }
+    const themeObserver = new MutationObserver(() => {
+      visualPalette = readVisualPalette()
+      requestDraw()
+    })
 
     buildSlices()
     resizeObserver.observe(canvas)
     visibilityObserver.observe(canvas)
     reducedQuery.addEventListener('change', onReducedChange)
     document.addEventListener('visibilitychange', onVisibilityChange)
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
     requestDraw()
 
     return () => {
@@ -278,6 +308,7 @@ export function SignalResolve({ onResolved }) {
       visibilityObserver.disconnect()
       reducedQuery.removeEventListener('change', onReducedChange)
       document.removeEventListener('visibilitychange', onVisibilityChange)
+      themeObserver.disconnect()
     }
   }, [])
 
