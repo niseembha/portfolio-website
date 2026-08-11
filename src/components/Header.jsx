@@ -3,8 +3,8 @@ import { links } from '../data/portfolio.js'
 import { ArrowUpRight } from './Icons.jsx'
 
 const navItems = [
-  { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Education', href: '#education' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },

@@ -106,6 +106,59 @@ export const projects = [
 
 export const experience = [
   {
+    id: 'stars',
+    company: 'UT Southwestern Medical Center',
+    role: 'Computational Biology & AI Protein Design Intern',
+    program: 'STARS Summer Research Program',
+    lab: 'Pool Lab / Dr. Allan-Hermann Pool',
+    place: 'Dallas, TX',
+    date: 'June — July 2026',
+    image: asset('STARS/utsw-logo.gif'),
+    alt: 'UT Southwestern Medical Center seal',
+    summary:
+      'Integrated mouse and human transcriptomic data to identify candidate pain-associated neuronal targets, then built computational protein-design workflows that produced 13 KCNK13 designs and 142 GPR139 docking candidates.',
+    tech: ['Computational Biology', 'Protein Design', 'Python', 'R'],
+    detail: {
+      eyebrow: 'STARS Summer Research Program · Pool Lab',
+      title: 'Computational design for more targeted pain research.',
+      overview:
+        'Spinal projection neurons carry sensory signals from the spinal cord to the brain, but their human molecular identities are less resolved than their mouse counterparts. This project connected cross-species single-cell analysis with AI-assisted protein design to investigate more selective ways of reaching candidate pain-associated neurons.',
+      hero: {
+        image: asset('STARS/smiling-next-to-poster.png'),
+        alt: 'Niseem Bhattacharya standing beside his STARS research poster at UT Southwestern',
+      },
+      sections: [
+        {
+          label: 'Finding targets',
+          text: 'Integrated a molecular atlas of mouse spinal projection neurons with human spinal-cord single-cell RNA-seq data. Cross-species label transfer identified candidate human populations corresponding to characterized mouse SPNs, and cell-surface expression analysis prioritized KCNK13 and GPR139 as potential molecular targets.',
+        },
+        {
+          label: 'KCNK13 · BindCraft',
+          text: 'Designed candidate binders against an extracellular region of KCNK13, using residue D69 as an important design hotspot. BindCraft generated 13 accepted computational designs across four distinct protein backbones.',
+        },
+        {
+          label: 'GPR139 · Multistage pipeline',
+          text: 'Built a complementary workflow using MetaGen, RIFDock, ProteinMPNN, and AlphaFold to generate scaffolds, dock them against GPR139, design sequences, and evaluate predicted structures. RIFDock identified 142 strong docking candidates.',
+        },
+      ],
+      results: [
+        { value: '13', label: 'Accepted KCNK13 computational designs' },
+        { value: '04', label: 'Distinct KCNK13 protein backbones' },
+        { value: '142', label: 'Strong GPR139 docking candidates' },
+      ],
+      tools: ['Python', 'R', 'Linux', 'BindCraft', 'MetaGen', 'RIFDock', 'ProteinMPNN', 'AlphaFold'],
+      presentation: {
+        image: asset('STARS/presenting-poster.png'),
+        alt: 'Niseem Bhattacharya explaining his computational pain research during the STARS poster session',
+      },
+      poster: {
+        image: asset('STARS/poster-actual.jpg'),
+        alt: 'Research poster summarizing cross-species spinal projection neuron analysis and computational binder design for KCNK13 and GPR139',
+      },
+    },
+  },
+  {
+    id: 'datacolor',
     company: 'Datacolor.ai',
     role: 'Software Engineering Intern',
     place: 'McKinney, TX',
@@ -118,6 +171,7 @@ export const experience = [
     tech: ['React', 'Flask', 'MySQL', 'OpenAI API'],
   },
   {
+    id: 'inzpireu',
     company: 'InzpireU',
     role: 'Web Scraping & Data Extraction Intern',
     place: 'Remote',
@@ -165,7 +219,7 @@ export const capabilities = [
   },
   {
     label: 'Model',
-    items: ['Python', 'PyTorch', 'scikit-learn', 'Pandas', 'NumPy'],
+    items: ['Python', 'R', 'PyTorch', 'scikit-learn', 'Pandas', 'NumPy'],
   },
   {
     label: 'Ship',

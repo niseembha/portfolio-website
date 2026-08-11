@@ -121,7 +121,7 @@ export function ProjectShowcase() {
       <div className="shell">
         <div className="section-heading" data-reveal>
           <div className="section-kicker">
-            <span>01</span>
+            <span>02</span>
             <p>Selected systems</p>
           </div>
           <h2 id="projects-title">Built where the stakes get real.</h2>

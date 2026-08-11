@@ -8,7 +8,6 @@ import { Footer } from './components/Footer.jsx'
 import { Header } from './components/Header.jsx'
 import { Hero } from './components/Hero.jsx'
 import { ImpactSection } from './components/ImpactSection.jsx'
-import { PatternSection } from './components/PatternSection.jsx'
 import { ProjectShowcase } from './components/ProjectShowcase.jsx'
 import { ScrollProgress } from './components/ScrollProgress.jsx'
 import { useReveal } from './hooks/useReveal.js'
@@ -60,9 +59,8 @@ export default function App() {
       : (
         <>
           <Hero />
-          <PatternSection />
-          <ProjectShowcase />
           <ExperienceSection />
+          <ProjectShowcase />
           <ImpactSection />
           <EducationSection />
           <CapabilitiesSection />

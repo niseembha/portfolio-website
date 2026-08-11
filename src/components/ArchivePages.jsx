@@ -38,7 +38,7 @@ export function ProjectsArchive() {
   return (
     <>
       <ArchiveHero
-        index="01"
+        index="02"
         eyebrow="Project archive"
         title={<>All projects.<br /><em>No filler.</em></>}
         summary="A growing archive of systems, experiments, research, and tools—featured work and the useful builds in between."
@@ -70,10 +70,10 @@ export function ExperienceArchive() {
   return (
     <>
       <ArchiveHero
-        index="02"
+        index="01"
         eyebrow="Experience archive"
         title={<>All experience.<br /><em>Real constraints.</em></>}
-        summary="Every role, collaboration, and production environment that shaped how I turn ambiguous problems into reliable systems."
+        summary="Every role, research collaboration, and technical environment that shaped how I turn ambiguous problems into reliable systems."
         count={experience.length}
         countLabel="Roles documented"
         backHref="#experience"

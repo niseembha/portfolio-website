@@ -1,40 +1,68 @@
-import { links, profileImage } from '../data/portfolio.js'
-import { ArrowUpRight, GithubIcon, LinkedinIcon, MailIcon } from './Icons.jsx'
+import { links, profileImage } from "../data/portfolio.js";
+import { ArrowUpRight, GithubIcon, LinkedinIcon, MailIcon } from "./Icons.jsx";
 
 export function AboutContact() {
   return (
     <>
-      <section className="about-section section-pad" id="about" aria-labelledby="about-title">
-        <div className="shell about-layout">
-          <div className="about-portrait" data-reveal>
-            <div className="portrait-frame">
-              <img src={profileImage} alt="Niseem Bhattacharya" loading="lazy" />
-              <span aria-hidden="true">NB / 26</span>
-            </div>
-            <p>Dallas, Texas</p>
-          </div>
-          <div className="about-copy" data-reveal>
+      <section
+        className="about-section section-pad"
+        id="about"
+        aria-labelledby="about-title"
+      >
+        <div className="shell">
+          <div className="about-header" data-reveal>
             <div className="section-kicker">
               <span>06</span>
               <p>A little more human</p>
             </div>
-            <h2 id="about-title">Curious enough to start. Persistent enough to finish.</h2>
-            <div className="about-columns">
-              <p>
-                I’m Niseem Bhattacharya, a student engineer who likes turning unfamiliar problems
-                into useful technology. The common thread is curiosity: understanding how a system
-                works, then seeing how far I can push it.
+            <h2 id="about-title">
+              Curious by default. Persistent in practice.
+            </h2>
+          </div>
+
+          <div className="about-body">
+            <div className="about-portrait" data-reveal>
+              <div className="portrait-frame">
+                <img
+                  src={profileImage}
+                  alt="Niseem Bhattacharya"
+                  loading="lazy"
+                />
+                <span aria-hidden="true">NB / 26</span>
+              </div>
+              <p>Dallas, Texas</p>
+            </div>
+
+            <div className="about-story" data-reveal>
+              <p className="about-lead">
+                I’m Niseem Bhattacharya, a student engineer who likes turning
+                unfamiliar problems into useful technology.
               </p>
-              <p>
-                Off-screen, I’m usually watching a movie, gaming, getting food with friends, or
-                playing basketball or golf. I’m always looking for the next hard problem—and the
-                right people to tackle it with.
+              <p className="about-personal">
+                Off-screen, I’m usually watching a movie, gaming, getting food
+                with friends, or playing basketball or golf. I’m always looking
+                for the next hard problem—and the right people to tackle it
+                with.
               </p>
+              <dl className="about-facts">
+                <div>
+                  <dt>Based in</dt>
+                  <dd>Dallas, Texas</dd>
+                </div>
+                <div>
+                  <dt>Currently</dt>
+                  <dd>Class of 2027</dd>
+                </div>
+              </dl>
             </div>
           </div>
         </div>
       </section>
-      <section className="contact-section" id="contact" aria-labelledby="contact-title">
+      <section
+        className="contact-section"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
         <div className="contact-orbit" aria-hidden="true">
           <span>BUILD · QUESTION · LEARN · SHIP · </span>
         </div>
@@ -61,5 +89,5 @@ export function AboutContact() {
         </div>
       </section>
     </>
-  )
+  );
 }
