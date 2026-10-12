@@ -24,7 +24,7 @@ const creativeWork = [
     video: animeVideo, poster: animePoster,
     id: 'anime', title: 'Anime Edits', category: 'Video Editing · Animation · Short-form Media',
     description: 'A separate TikTok account for experimenting with pacing, music synchronization, transitions, effects, and short-form visual storytelling.',
-    metric: '30K+', metricLabel: 'Total views', tools: 'Pacing · Motion · Music',
+    metric: '30K+', metricLabel: 'Total views', tools: 'After Effects · Premiere Pro',
     preview: 'In rhythm.', previewNote: 'Watch featured edit on TikTok',
     previewHref: 'https://www.tiktok.com/@meesin_editss2/video/7665584255015128333?lang=en',
     action: 'View TikTok', href: 'https://www.tiktok.com/@meesin_editss2?lang=en',
