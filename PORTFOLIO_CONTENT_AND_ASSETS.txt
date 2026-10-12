@@ -376,20 +376,6 @@ April 2026
 • Won Best Use of ElevenLabs at HackSMU VII among competing student teams.
 
 
-GRANTMATE
-Category: AI Grant Platform
-
-Website summary:
-Started this project during my internship at Datacolor, where I built an
-AI-powered grant discovery platform that aggregates public and private funding
-sources into a single searchable workflow for nonprofits. I then continued to
-develop and expand it, enhancing features like intelligent grant matching and
-PDF-based analysis to help teams quickly evaluate opportunities without
-navigating fragmented databases.
-
-No external GrantMate link is currently attached to the project card.
-
-
 7. COMPLETE RÉSUMÉ TEXT (AS EXTRACTED FROM resume.pdf)
 =====================================================
 
@@ -500,10 +486,6 @@ src/assets/MedSight.jpg
 JPEG, 1920 × 1080
 Note: the filename uses capital M and S; preserve capitalization.
 
-GrantMate image:
-src/assets/grantmate.png
-PNG, 608 × 405
-
 Datacolor.ai image:
 src/assets/datacolor.jpeg
 JPEG, 800 × 800
@@ -597,10 +579,6 @@ Features listed in README:
 • Fast performance using Vite
 
 Projects highlighted in README:
-GrantMate (Datacolor.ai)
-AI-powered grant matching platform with OpenAI integration and full-stack
-architecture.
-
 Diabetes Risk Prediction Model
 Machine learning model predicting diabetes risk with ROC-AUC ≈ 0.85 and
 simulated progression engine.
@@ -610,47 +588,7 @@ Nonprofit initiative delivering meals to underserved communities, with full
 website and operations management.
 
 
-11. UNLISTED DEEP WORK SCOREBOARD COPY
-======================================
-
-This text belongs to the separate, unlisted /deep-work-scoreboard/ utility in
-the same repository. It is included for completeness but is not portfolio copy.
-
-Deep Work Scoreboard
-
-This is a personal Deep Work scoreboard. Each filled square represents one
-honest hour of focused, distraction-free deep work. This page is unlisted and
-mainly for my own accountability.
-
-Deep work logged
-Lifetime
-hours
-This week
-Today
-Be honest, count only real deep work, and round down.
-[number] / 12 hours
-Set today’s deep work hours
-Submit [number] hour/hours
-[number] hour/hours logged. The wall is up to date.
-Lifetime wall
-One square for every honest hour.
-[number] square/squares
-Your first square starts here.
-Daily log
-[number] day/days
-No hours logged yet.
-Edit
-Hours for [date]
-Save
-Cancel
-
-Source files:
-src/DeepWorkScoreboard.jsx
-src/DeepWorkScoreboard.css
-deep-work-scoreboard/index.html
-
-
-12. CONTENT CHECKS TO MAKE BEFORE PUBLISHING A NEW SITE
+11. CONTENT CHECKS TO MAKE BEFORE PUBLISHING A NEW SITE
 ======================================================
 
 • Table of Hope fundraising differs between sources: the website card says
@@ -659,7 +597,6 @@ deep-work-scoreboard/index.html
   a shorter vanity-style path. Verify which URL should be used.
 • The README lists Tailwind CSS with the note “if you used it — remove if not.”
   This appears to be template text and should be verified before reuse.
-• GrantMate currently has no external project link in src/App.jsx.
 • The résumé contains details not present in the cards, including dates, phone
   number, MedSight’s HackSMU award, and more detailed bullets. They are preserved
   above so they are not lost.

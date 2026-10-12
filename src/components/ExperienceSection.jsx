@@ -146,7 +146,15 @@ export function ExperienceList({ items = experience }) {
           <article className={`experience-item experience-${item.id}`} data-reveal key={item.id}>
             <div className="experience-number">{String(index + 1).padStart(2, '0')}</div>
             <div className="experience-logo">
-              <img src={item.image} alt={item.alt} loading="lazy" />
+              {item.detail ? (
+                <button className="image-destination" type="button" aria-label={`Explore ${item.company} research`} aria-haspopup="dialog" onClick={() => setActiveExperience(item)}>
+                  <img src={item.image} alt={item.alt} loading="lazy" />
+                </button>
+              ) : item.href ? (
+                <a className="image-destination" href={item.href} target="_blank" rel="noreferrer" aria-label={`Visit ${item.company}`}>
+                  <img src={item.image} alt={item.alt} loading="lazy" />
+                </a>
+              ) : <img src={item.image} alt={item.alt} loading="lazy" />}
             </div>
             <div className="experience-main">
               <div className="experience-title-row">
@@ -205,10 +213,10 @@ export function ExperienceSection() {
             ambiguous questions into reproducible technical workflows.
           </p>
           <a className="archive-link archive-link-dark" href="#/experience">
-            View all experience <ArrowUpRight size={18} />
+            All work experiences <ArrowUpRight size={18} />
           </a>
         </div>
-        <ExperienceList items={experience.slice(0, 2)} />
+        <ExperienceList items={experience} />
       </div>
     </section>
   )

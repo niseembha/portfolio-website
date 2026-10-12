@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AboutContact } from './components/AboutContact.jsx'
 import { EducationArchive, ExperienceArchive, ProjectsArchive } from './components/ArchivePages.jsx'
+import { CreativeWorkSection } from './components/CreativeWorkSection.jsx'
 import { CapabilitiesSection } from './components/CapabilitiesSection.jsx'
 import { EducationSection } from './components/EducationSection.jsx'
 import { ExperienceSection } from './components/ExperienceSection.jsx'
@@ -63,6 +64,7 @@ export default function App() {
           <ProjectShowcase />
           <ImpactSection />
           <EducationSection />
+          <CreativeWorkSection />
           <CapabilitiesSection />
           <AboutContact />
         </>

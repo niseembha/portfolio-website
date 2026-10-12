@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { education, experience, projects } from '../data/portfolio.js'
-import { EducationGrid } from './EducationSection.jsx'
+import { EducationGrid, HonorsRecognition } from './EducationSection.jsx'
 import { ArrowUpRight } from './Icons.jsx'
 import { ExperienceList } from './ExperienceSection.jsx'
 import { ProjectCard, ProjectDialog } from './ProjectShowcase.jsx'
@@ -110,6 +110,7 @@ export function EducationArchive() {
             <span>School, programs, and certificates</span>
           </div>
           <EducationGrid items={education} />
+          <HonorsRecognition />
         </div>
       </section>
     </>

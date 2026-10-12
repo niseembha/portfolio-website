@@ -5,7 +5,9 @@ import { ArrowUpRight } from './Icons.jsx'
 const navItems = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Leadership & Initiatives', href: '#leadership' },
   { label: 'Education', href: '#education' },
+  { label: 'Creative Work', href: '#creative' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]

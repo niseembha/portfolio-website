@@ -1176,15 +1176,6 @@ ul {
   transform: scale(1.035);
 }
 
-.project-grantmate .project-card__media {
-  padding: 12%;
-  background: var(--color-media-soft);
-}
-
-.project-grantmate .project-card__media img {
-  object-fit: contain;
-}
-
 .project-diabetes .project-card__media img {
   object-position: 50% 50%;
 }
@@ -3537,3 +3528,467 @@ ul {
     display: none;
   }
 }
+
+/* Compact DiaTrend card with an on-demand product viewer. */
+.project-diabetes .project-card__media,
+.project-diabetes .project-dialog__media {
+  aspect-ratio: auto;
+  min-height: 0;
+  background: var(--color-media-soft);
+}
+
+.project-card.project-diabetes {
+  grid-template-rows: auto 1fr;
+  align-self: start;
+  min-height: 0;
+}
+
+.project-diabetes .project-card__media > img,
+.project-diabetes .project-dialog__media > img {
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+.project-diabetes .project-card__media::after { display: none; }
+.project-diabetes .project-card__body { padding: 24px; }
+.project-diabetes .project-card__meta { margin-bottom: 0; }
+.project-card.project-diabetes h3 { margin-top: 24px; }
+.project-diabetes .project-card__body > p { margin-top: 14px; }
+.project-diabetes .project-card__footer { margin-top: 22px; gap: 14px; }
+.project-diabetes .project-card__footer .project-open { flex-shrink: 0; }
+
+.app-showcase {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.project-dialog .app-showcase {
+  margin: 0 clamp(20px, 5vw, 70px) 28px;
+}
+
+.project-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.project-stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.project-stats dt {
+  font-size: 10px;
+  line-height: 1.4;
+  color: rgb(var(--rgb-contrast) / 0.65);
+}
+
+.project-stats dd {
+  margin: 0;
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: -0.05em;
+}
+
+.screening-note,
+.research-note {
+  margin-top: 22px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: rgb(var(--rgb-contrast) / 0.65);
+}
+
+.project-card__body > .project-subtitle,
+.project-dialog .project-subtitle {
+  margin-top: 14px;
+  color: var(--card-accent);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 22px;
+  font-size: 11px;
+  list-style: none;
+}
+.project-dialog__details .project-tech li { padding: 0; border: 0; }
+.project-dialog__details .project-tech li::before { display: none; }
+
+.app-screens-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--card-accent);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.app-screens-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.app-screen-viewer {
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-canvas);
+  color: var(--color-contrast);
+}
+.app-screen-viewer::backdrop {
+  background: rgb(0 0 0 / 0.7);
+  backdrop-filter: blur(8px);
+}
+.app-screen-viewer__panel { padding: 16px; }
+.app-screen-viewer__header,
+.app-screen-viewer__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.app-screen-viewer__header h2 { font-size: 15px; font-weight: 500; }
+.app-screen-viewer button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--color-border-subtle);
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.app-screen-viewer button:hover { background: var(--color-media-soft); }
+.app-screen-viewer figure { margin: 12px 0; touch-action: pan-y; }
+.app-screen-viewer figure img {
+  display: block;
+  width: 100%;
+  height: min(64dvh, 650px);
+  object-fit: contain;
+}
+.app-screen-viewer figcaption {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+}
+.app-screen-viewer__controls > span { font-size: 12px; }
+
+@media (max-width: 600px) {
+  .project-diabetes .project-card__body { padding: 22px 20px; }
+  .project-diabetes .project-open { margin-top: 16px; }
+  .app-screen-viewer { width: 100vw; max-height: 100dvh; }
+}
+
+/* School academics and external recognition use compact editorial rows. */
+.education-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.school-academics {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 5vw, 72px);
+  padding: clamp(24px, 4vw, 48px);
+  border-right: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.school-academics__intro > img { width: 64px; height: 64px; object-fit: contain; margin-bottom: 24px; }
+.school-academics h3 {
+  font-size: clamp(34px, 4vw, 53px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.065em;
+}
+.school-coursework {
+  margin: 22px 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgb(var(--rgb-contrast) / 0.65);
+}
+.school-academics .education-link { padding-top: 16px; }
+.school-academics__details { display: grid; gap: 24px; align-content: start; }
+.school-academics__details .detail-label { margin-bottom: 12px; }
+.academic-sat > p:last-child { margin-top: 8px; font-size: 13px; color: rgb(var(--rgb-contrast) / 0.65); }
+.academic-score { font-size: 48px; line-height: 1; letter-spacing: -0.06em; }
+.academic-ap dl { margin: 0; }
+.academic-ap dl > div { display: flex; justify-content: space-between; gap: 20px; padding: 8px 0; border-bottom: 1px solid var(--color-border-subtle); font-size: 13px; line-height: 1.4; }
+.academic-ap dd { margin: 0; font-weight: 600; }
+.academic-note { margin-top: 12px; font-size: 11px; line-height: 1.5; color: rgb(var(--rgb-contrast) / 0.6); }
+.academic-recognition { border-top: 1px solid var(--color-border-subtle); padding-top: 20px; }
+.academic-recognition > p { font-size: 14px; line-height: 1.5; }
+.academic-recognition > p + p { margin-top: 10px; }
+.honors-recognition { margin-top: clamp(48px, 6vw, 80px); }
+.honors-heading h2 { font-size: clamp(30px, 3.5vw, 46px); font-weight: 500; letter-spacing: -0.055em; }
+.honors-list { list-style: none; margin-top: 28px; border-top: 1px solid var(--color-contrast); }
+.honors-list li { display: grid; grid-template-columns: 48px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--color-border-subtle); }
+.honor-index { font-size: 10px; color: rgb(var(--rgb-contrast) / 0.5); padding-top: 5px; }
+.honors-list h3 { font-size: clamp(18px, 2vw, 24px); font-weight: 500; line-height: 1.3; letter-spacing: -0.035em; }
+.honors-list p { margin-top: 8px; font-size: 11px; color: rgb(var(--rgb-contrast) / 0.6); }
+@media (max-width: 760px) {
+  .school-academics { grid-template-columns: 1fr; }
+  .honors-list li { grid-template-columns: 28px 1fr; gap: 12px; }
+}
+
+/* Authentic RF figures remain uncropped in the shared project layouts. */
+.project-rf-detection .project-card__media,
+.project-rf-detection .project-dialog__media {
+  aspect-ratio: auto;
+  min-height: 0;
+  background: var(--color-media-soft);
+}
+.project-rf-detection .project-card__media::after { display: none; }
+.research-figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  padding: 60px 20px 24px;
+}
+.research-figures figure { min-width: 0; margin: 0; }
+.research-figures .detail-label { margin-bottom: 12px; font-size: 9px; line-height: 1.5; }
+.project-rf-detection .research-figures img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.research-figures figcaption {
+  margin-top: 10px;
+  color: rgb(var(--rgb-contrast) / 0.65);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.project-card.project-rf-detection { grid-template-rows: auto 1fr; }
+.project-rf-detection .project-card__body { padding: 24px; }
+.project-rf-detection .project-card__meta { margin-bottom: 0; }
+.project-card.project-rf-detection h3 { margin-top: 28px; }
+.project-rf-detection .project-card__footer { margin-top: 24px; flex-wrap: wrap; }
+.project-card__body > .project-affiliation,
+.project-dialog .project-affiliation {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--card-accent);
+}
+.research-progression { margin-top: 24px; font-size: 13px; line-height: 1.8; color: rgb(var(--rgb-contrast) / 0.65); }
+.project-dialog .research-figures { padding: 28px clamp(20px, 4vw, 48px); }
+.research-support { padding: 0 clamp(20px, 5vw, 70px) 36px; }
+.research-support .research-figures { padding: 0; }
+@media (max-width: 760px) {
+  .project-rf-detection .project-card__body { padding: 24px 20px; }
+  .project-rf-detection .project-open { margin-top: 16px; }
+  .project-dialog .research-figures { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* Image destinations mirror each card’s existing detail or website action. */
+.project-image-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: box-shadow 200ms ease;
+}
+.project-image-link:hover,
+.project-image-link:focus-visible {
+  box-shadow: inset 0 0 0 3px var(--card-accent);
+}
+.project-image-link:focus-visible { outline-offset: -6px; }
+.image-destination {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.image-destination:hover { opacity: 0.8; transform: translateY(-2px); }
+.experience-logo .image-destination { display: block; width: 100%; height: 100%; }
+.school-image-link { width: 64px; height: 64px; margin-bottom: 24px; }
+.school-image-link img { width: 100%; height: 100%; object-fit: contain; }
+@media (prefers-reduced-motion: reduce) {
+  .image-destination { transition: none; }
+  .image-destination:hover { transform: none; }
+}
+
+/* Archive navigation is presented as a visible, full-surface action. */
+.archive-link {
+  min-height: 48px;
+  padding: 15px 20px;
+  border: 1px solid var(--color-contrast);
+  color: var(--color-light);
+  background: var(--color-contrast);
+  font-size: 12px;
+  letter-spacing: 0.035em;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease, box-shadow 200ms ease;
+}
+.archive-link:hover,
+.archive-link:focus-visible {
+  color: var(--color-contrast);
+  background: var(--color-light);
+  box-shadow: 0 4px 0 rgb(var(--rgb-contrast) / 0.15);
+}
+.archive-link-dark {
+  color: var(--color-contrast);
+  background: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+}
+.archive-link-dark:hover,
+.archive-link-dark:focus-visible {
+  color: var(--color-contrast);
+  background: var(--color-light);
+  border-color: var(--color-light);
+}
+
+/* Leadership emphasizes organizations and community, separate from project cards. */
+.impact-section.initiatives-section { min-height: 0; }
+.initiatives-inner { padding-block: clamp(64px, 8vw, 112px); }
+.initiatives-heading { margin-bottom: 48px; }
+.initiatives-heading h2 {
+  margin-top: 30px;
+  font-size: clamp(48px, 7vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+.initiatives-heading > p { margin-top: 22px; font-size: 15px; line-height: 1.5; }
+.initiative {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  padding-block: 40px;
+  border-top: 1px solid rgb(var(--rgb-contrast) / 0.45);
+  align-items: center;
+}
+.initiative-brand {
+  display: grid;
+  width: min(100%, 280px);
+  aspect-ratio: 1;
+  justify-self: center;
+  background: transparent;
+  place-items: center;
+  overflow: hidden;
+}
+.initiative-brand img { width: 100%; height: 100%; object-fit: contain; }
+.initiative-content h3 { font-size: clamp(36px, 4.5vw, 64px); font-weight: 500; line-height: 1; letter-spacing: -0.065em; }
+.initiative-content .detail-label { line-height: 1.5; }
+.initiative-role { margin-top: 12px; font-size: 13px; font-weight: 600; }
+.initiative-description { margin-top: 22px; max-width: 560px; font-size: 15px; line-height: 1.65; }
+.initiative-approval { display: inline-block; margin-top: 22px; padding: 9px 12px; border: 1px solid rgb(var(--rgb-contrast) / 0.45); font-size: 12px; font-weight: 700; }
+.initiative-sponsors { margin-top: 22px; }
+.initiative-sponsors .detail-label { margin-bottom: 8px; }
+.initiative-sponsors ul { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; font-size: 13px; }
+.initiative-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 24px; padding-block: 10px; border-bottom: 1px solid var(--color-contrast); font-size: 12px; font-weight: 700; }
+.initiative-link:hover svg { transform: translate(2px, -2px); }
+.initiative-service-brand > a img { width: 90px; height: 90px; object-fit: contain; }
+.initiative-service-brand .impact-stats { margin-top: 32px; gap: 24px; }
+.initiative-service-brand .impact-stats strong { font-size: clamp(44px, 5vw, 76px); }
+@media (max-width: 760px) {
+  .initiative { grid-template-columns: 1fr; padding-block: 28px; }
+  .initiative-brand { width: min(100%, 200px); }
+  .initiatives-heading { margin-bottom: 32px; }
+  .initiative-service-brand .impact-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .initiative-service-brand .impact-stats > div + div { margin-top: 0; }
+}
+
+/* Creative work stays personal and light, outside the technical project grid. */
+.creative-section { background: var(--color-canvas-muted); }
+.creative-heading { margin-bottom: 40px; }
+.creative-heading h2 { font-size: clamp(44px, 6vw, 82px); font-weight: 500; line-height: 1; letter-spacing: -0.065em; }
+.creative-heading > p:last-child { margin-top: 20px; font-size: 15px; color: rgb(var(--rgb-contrast) / 0.65); }
+.creative-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.creative-item { min-width: 0; }
+.creative-preview {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background: var(--color-contrast);
+  color: var(--color-light);
+  text-align: center;
+}
+.creative-sports .creative-preview { border-top: 3px solid var(--color-accent-primary); }
+.creative-anime .creative-preview { border-top: 3px solid var(--color-project-violet); }
+.creative-piano .creative-preview { background: var(--color-education-matte); color: var(--color-contrast); }
+.creative-play { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid currentColor; border-radius: 50%; font-size: 25px; line-height: 1; }
+.creative-preview__title { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: clamp(22px, 2.2vw, 32px); }
+.creative-preview__note { font-size: 10px; opacity: 0.65; }
+.creative-body { padding-block: 24px; }
+.creative-body .detail-label { font-size: 9px; line-height: 1.5; margin-bottom: 14px; }
+.creative-body h3 { font-size: clamp(32px, 3vw, 44px); font-weight: 500; letter-spacing: -0.055em; line-height: 1; }
+.creative-role { margin-top: 10px; font-size: 12px; }
+.creative-description { margin-top: 18px; font-size: 14px; line-height: 1.65; color: rgb(var(--rgb-contrast) / 0.65); }
+.creative-metric { display: flex; align-items: baseline; gap: 10px; margin-top: 20px; }
+.creative-metric strong { font-size: 26px; font-weight: 500; letter-spacing: -0.05em; }
+.creative-metric span, .creative-tools { font-size: 11px; color: rgb(var(--rgb-contrast) / 0.65); }
+.creative-tools { margin-top: 10px; line-height: 1.5; }
+.creative-action { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 16px; border-bottom: 1px solid var(--color-border-subtle); font-size: 12px; font-weight: 600; }
+.creative-action:hover:not([aria-disabled]) { border-color: var(--color-contrast); }
+.creative-action[aria-disabled] { opacity: 0.5; cursor: default; }
+.creative-pending { display: block; margin-top: 8px; font-size: 10px; color: rgb(var(--rgb-contrast) / 0.6); }
+@media (max-width: 760px) {
+  .creative-grid { grid-template-columns: 1fr; gap: 24px; }
+  .creative-item + .creative-item { border-top: 1px solid var(--color-border-subtle); padding-top: 24px; }
+}
+
+.creative-preview[href] { transition: box-shadow 200ms ease; }
+.creative-preview[href]:hover,
+.creative-preview[href]:focus-visible { box-shadow: inset 0 0 0 2px var(--color-accent-primary); }
+.creative-performance-note { margin-top: 12px; font-size: 12px; line-height: 1.6; font-style: italic; color: rgb(var(--rgb-contrast) / 0.65); }
+
+/* BBU is a casual journal with friends, beneath the three creative entries. */
+.creative-bbu {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 28px;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.creative-bbu .creative-preview { background: var(--color-education-matte); color: var(--color-contrast); }
+.creative-bbu .creative-body { padding-block: 0; }
+.creative-bbu .creative-description { max-width: 640px; }
+@media (max-width: 760px) {
+  .creative-bbu { grid-template-columns: 1fr; gap: 24px; }
+}
+
+.creative-video-preview,
+.creative-image-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+.creative-video-preview video,
+.creative-image-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.creative-image-preview { transition: box-shadow 200ms ease; }
+.creative-image-preview:hover,
+.creative-image-preview:focus-visible { outline: 2px solid var(--color-accent-primary); outline-offset: 3px; }
