@@ -1,13 +1,12 @@
 import { useEffect, useRef } from 'react'
 import sportsVideo from '../../assets/creative-section/sports-edit-trimmed.mp4'
 import animeVideo from '../../assets/creative-section/anime-edit-web.mp4'
+import pianoVideo from '../../assets/creative-section/piano-video.mp4'
 import sportsPoster from '../../assets/creative-section/sports-poster.jpg'
 import animePoster from '../../assets/creative-section/anime-poster.jpg'
+import pianoPoster from '../../assets/creative-section/piano-poster.jpg'
 import bbuImage from '../../assets/creative-section/bbu.png'
 import { ArrowUpRight } from './Icons.jsx'
-
-// Replace this value when the performance video is ready.
-const YOUTUBE_VIDEO_PLACEHOLDER = 'YOUTUBE_VIDEO_PLACEHOLDER'
 
 const creativeWork = [
   {
@@ -30,12 +29,14 @@ const creativeWork = [
     action: 'View TikTok', href: 'https://www.tiktok.com/@meesin_editss2?lang=en',
   },
   {
+    video: pianoVideo, poster: pianoPoster,
     id: 'piano', title: 'Piano', category: 'Music · Performance',
     description: 'About eight years at the piano—a space to interpret music and keep growing artistically. I play in recitals several times a year and perform at senior living communities.',
     metric: '~8', metricLabel: 'Years of piano', tools: 'Recitals · Community performances',
-    preview: 'My favorite to play.', previewNote: 'A playful performance · Coming soon',
-    performanceNote: 'I know many songs; this upcoming video is a playful take on my favorite song to play.',
-    action: 'Watch performance', href: YOUTUBE_VIDEO_PLACEHOLDER,
+    preview: 'My favorite to play.', previewNote: 'Watch the performance on YouTube',
+    previewHref: 'https://www.youtube.com/watch?v=CG0Eo4DUQ1g',
+    performanceNote: 'I know many songs; this video is a playful take on my favorite song to play.',
+    action: 'Watch performance', href: 'https://www.youtube.com/watch?v=CG0Eo4DUQ1g',
   },
   {
     image: bbuImage, imageAlt: 'BBU Food Reviews collage featuring noodle bowls, dumplings, and friends sharing a meal',
@@ -93,9 +94,9 @@ export function CreativeWorkSection() {
               <article className={`creative-item creative-${item.id}`} key={item.id} data-reveal>
                 {item.video ? (
                   <div className="creative-video-preview">
-                    <video controls muted loop playsInline preload="none" poster={item.poster} aria-label={`${item.title} featured edit`}>
+                    <video controls autoPlay={item.id === 'piano'} muted loop playsInline preload={item.id === 'piano' ? 'auto' : 'none'} poster={item.poster} aria-label={`${item.title} ${item.id === 'piano' ? 'performance' : 'featured edit'}`}>
                       <source src={item.video} type="video/mp4" />
-                      <a href={item.previewHref}>Watch the featured edit</a>
+                      <a href={item.previewHref}>Watch {item.id === 'piano' ? 'the performance' : 'the featured edit'}</a>
                     </video>
                   </div>
                 ) : item.image ? (
